@@ -8,7 +8,7 @@
 
 Rust won't allow double free or dangling pointer in safe mode.
 
-```rust,editable
+```rust, editable
 fn borrow(b: &String) {
     println!("borrow -> {b}");
 }

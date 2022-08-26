@@ -5,4 +5,5 @@
 - [struct](./struct.md)
     - [Tuple struct](./tuple-struct.md)
     - [Unit struct](./unit-struct.md)
+- [Resources](./resources.md)
 

@@ -2,7 +2,7 @@
 
 __3 types of struct__
 - __regular (C-like) struct__
-```rust
+```rust, editable
 # #[derive(Debug)]
 struct Person {
     name : String,
@@ -41,7 +41,7 @@ struct Unit;
 ```
 
 __A struct with some methods__
-```rust
+```rust, editable
 # extern crate chrono;
 use chrono::format::ParseResult;
 use chrono::prelude::*;
