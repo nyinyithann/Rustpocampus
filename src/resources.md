@@ -42,6 +42,8 @@
 - [Systems with JT](https://www.youtube.com/c/SystemswithJT)
 - [Ryan Levick](https://www.youtube.com/c/RyanLevicksVideos)
 
+### University Courses
+- [Brown University](https://stanford-cs242.github.io/f18/)
 
 ### Open source contributions
 - [Request-for-implementation](https://github.com/dtolnay/request-for-implementation/)
