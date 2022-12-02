@@ -27,8 +27,8 @@ impl<T> Point<T> {
 }
 
 impl<A, B> Point2D<A, B> {
-    fn new(x: A, y: B) -> Point2D<A, B> {
-        Point2D { x, y }
+    fn new(x: A, y: B) -> Self {
+        Self { x, y }
     }
 
     fn x(&self) -> &A {
