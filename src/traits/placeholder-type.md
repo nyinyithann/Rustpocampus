@@ -1,6 +1,6 @@
-# Placeholder Type
+# Associated Type
 
-`std::ops::Add` trait has the folowing implementation. `<Rhs = Self>` is called __default type paramaters__. `Output` is called __placeholder type__.
+`std::ops::Add` trait has the folowing implementation. `<Rhs = Self>` is called __default type paramaters__. `Output` is called __placeholder or associated type__.
 
 ```rust, norun, noplayground
 pub trait Add<Rhs = Self> {

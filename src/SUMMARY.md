@@ -13,9 +13,12 @@
     - [Conditionally Implement Methods](./traits/conditionally-implement-methods.md)
     - [Blanket Implementations](./traits/blanket-implementations.md)
     - [Trait Object](./traits/trait-object.md)
+        - [Trait Object Layout](./traits/trait-object-layout.md)
         - [Trait Object Lifetime](./traits/trait-object-lifetime.md)
-    - [Placeholder Type](./traits/placeholder-type.md)
+    - [Associated Type](./traits/placeholder-type.md)
+        - [Generic Associated Type](./traits/gat.md)
     - [Fully Qualified Syntax](./traits/fully-qualified-syntax.md)
+    - [Supertraits](./traits/supertraits.md)
 - [Resources](./resources.md)
 - [Pictures](./assets/container-cheatsheet.md)
 
