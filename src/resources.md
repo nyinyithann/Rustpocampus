@@ -1,6 +1,7 @@
 # Resources
 
 ### Staying Up to Date
+- [Nightly Doc](https://doc.rust-lang.org/nightly/reference/introduction.html)
 - [Official Rust Blog](https://blog.rust-lang.org)
 - [The Rust Edition Guide](https://doc.rust-lang.org/edition-guide/)
 - [Inside Rust Blog](https://blog.rust-lang.org/inside-rust/)
@@ -43,7 +44,8 @@
 - [Ryan Levick](https://www.youtube.com/c/RyanLevicksVideos)
 
 ### University Courses
-- [Brown University](https://stanford-cs242.github.io/f18/)
+- [Stanford](https://stanford-cs242.github.io/f18/)
+- [Pennsylvania](https://cis198-2016s.github.io/schedule/)
 
 ### Open source contributions
 - [Request-for-implementation](https://github.com/dtolnay/request-for-implementation/)

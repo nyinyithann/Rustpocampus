@@ -2,6 +2,8 @@
 "Compile-time process where polymorphic functions are replaced by many monomorphic functions for each unique instantiation."
 -- [Wikipedia](https://en.wikipedia.org/wiki/Monomorphization?oldformat=true)
 
+"The code that results from monomorphization is doing _static dispatch_, which is when the compiler knows what method you're calling at compile time." -- [The Book](https://rust-book.cs.brown.edu/ch17-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types)
+
 #### Before monomorphization
 ```rust
 {{#include ../../code/generics/monomorphization/src/main.rs}}

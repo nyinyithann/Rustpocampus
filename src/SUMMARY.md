@@ -1,12 +1,21 @@
 # Summary
 
 - [Introduction](./introduction.md)
-- [Ownership & Borrowing](./ownershipandborrowing.md)
+- [Ownership & Borrowing](./ownership/ownershipandborrowing.md)
 - [Struct](./structs/struct.md)
     - [Tuple struct](./structs/tuple-struct.md)
     - [Unit struct](./structs/unit-struct.md)
 - [Generics](./generics/generics.md)
     - [Monomorphization](./generics/monomorphization.md)
 - [Traits](./traits/traits.md)
+    - [impl trait](./traits/impl-trait.md)
+    - [Trait Bound](./traits/trait-bound.md)
+    - [Conditionally Implement Methods](./traits/conditionally-implement-methods.md)
+    - [Blanket Implementations](./traits/blanket-implementations.md)
+    - [Trait Object](./traits/trait-object.md)
+        - [Trait Object Lifetime](./traits/trait-object-lifetime.md)
+    - [Placeholder Type](./traits/placeholder-type.md)
+    - [Fully Qualified Syntax](./traits/fully-qualified-syntax.md)
 - [Resources](./resources.md)
+- [Pictures](./assets/container-cheatsheet.md)
 
