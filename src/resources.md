@@ -58,3 +58,6 @@
  
 ### Exercise/Quiz
 - [Rust Quiz](https://dtolnay.github.io/rust-quiz)
+
+### Data Structures and Algorithms
+- [DSA Github](https://github.com/TheAlgorithms/Rust)

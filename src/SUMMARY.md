@@ -19,6 +19,8 @@
         - [Generic Associated Type](./traits/gat.md)
     - [Fully Qualified Syntax](./traits/fully-qualified-syntax.md)
     - [Supertraits](./traits/supertraits.md)
+- [Closure](./closure/closure-basic.md)
+    - [Fn, FnOnce, FnMut](./closure/closure-traits.md)
 - [Resources](./resources.md)
 - [Pictures](./assets/container-cheatsheet.md)
 
