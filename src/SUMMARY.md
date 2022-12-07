@@ -21,6 +21,7 @@
     - [Supertraits](./traits/supertraits.md)
 - [Closure](./closure/closure-basic.md)
     - [Fn, FnOnce, FnMut](./closure/closure-traits.md)
+- [Iterator](./iterator/iterator.md)
 - [Resources](./resources.md)
 - [Pictures](./assets/container-cheatsheet.md)
 
