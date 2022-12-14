@@ -19,7 +19,7 @@ trait Iterator {
 }
 ```
 
-Traditionally, the following 3 methods are implemented for iterable types.
+__iterator__ can be reterieved from __iterable types__ using the following 3 methods:
 - `iter()` - iterates over `&T`
 - `iter_mut()` - iterates over `&mut T`
 - `into_iter()` - iterates over `T`
@@ -32,4 +32,12 @@ Traditionally, the following 3 methods are implemented for iterable types.
 {{#include ../../code/iterator/src/bin/basic/main.rs:into_iter }}
 ```
 
+#### Looping with `iter`
+```rust, norun, noplayground
+{{#include ../../code/iterator/src/bin/basic/main.rs:iter }}
+```
 
+#### Looping with `iter_mut`
+```rust, norun, noplayground
+{{#include ../../code/iterator/src/bin/basic/main.rs:iter_mut }}
+```
