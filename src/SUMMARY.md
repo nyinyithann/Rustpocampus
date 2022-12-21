@@ -23,6 +23,7 @@
     - [Fn, FnOnce, FnMut](./closure/closure-traits.md)
 - [Iterator](./iterator/iterator.md)
     - [Implemting Iterator](./iterator/implement-iterator.md)
+- [Error Handling](./error_handling/error-handling.md)
 - [Resources](./resources.md)
 - [Pictures](./assets/container-cheatsheet.md)
 
