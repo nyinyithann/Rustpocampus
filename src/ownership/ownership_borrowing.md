@@ -53,3 +53,47 @@ The borrowing and ownership mechanism can be simplified down to:
 - You can use `Cell` and `RefCell` to allow for mutably modifying an immutable field in a struct.
 - You may mutably borrow multiple slices from the same array simultaneously so long as there is no overlap.
 - Safe memory practices means that instead of mutably borrowing the same variable in multiple places, you queue the changes to make in a separate location and apply them serially one after another.
+
+
+## From chatgpt
+
+#### Ownership
+- Every value in Rust has a single owner.
+- When the owner goes out of scope, the value is automatically dropped (freed from memory).
+- You can borrow a value from its owner, allowing you to use the value without taking ownership of it.
+- When a value is borrowed, the original owner cannot modify the value until the borrow goes out of scope.
+
+```rust, editable
+fn main() {
+    let x = 5;  // x is a new i32 value with the value 5
+    let y = x;  // y is a new i32 value with the value 5
+    // x is no longer needed, so it is dropped
+    println!("{}", y);  // prints 5
+}
+```
+
+#### Borrowing
+There are two types of borrowing in Rust: immutable borrowing and mutable borrowing.
+
+Immutable borrowing is done using the & operator. It allows you to use a value without changing it, but it does not allow you to modify the value.
+
+
+```rust, editable
+fn main() {
+    let x = 5;
+    let y = &x;  // y is an immutable borrow of x
+    println!("{}", y);  // prints 5
+    *y = 6;  // error: cannot assign to immutable borrowed value
+}
+```
+
+Mutable borrowing is done using the &mut operator. It allows you to use and modify a value, but it requires that you have exclusive access to the value for the duration of the borrow.
+
+```rust, editable 
+fn main() {
+    let mut x = 5;
+    let y = &mut x;  // y is a mutable borrow of x
+    *y = 6;  // ok: we can modify x through y
+    println!("{}", y);  // prints 6
+}
+```

@@ -1,7 +1,13 @@
 # Summary
 
 - [Introduction](./introduction.md)
-- [Ownership & Borrowing](./ownership/ownershipandborrowing.md)
+- [Ownership & Borrowing](./ownership/ownership_borrowing.md)
+    - [Stack & Heap](./ownership/stack_heap.md)
+    - [Box](./ownership/box.md)
+    - [Rc And Arc](./ownership/rc_arc.md)
+    - [Weak Reference](./ownership/weak_ref.md)
+    - [Notes](./ownership/notes.md)
+    - [Illustrations](./ownership/illustrations.md)
 - [Struct](./structs/struct.md)
     - [Tuple struct](./structs/tuple-struct.md)
     - [Unit struct](./structs/unit-struct.md)

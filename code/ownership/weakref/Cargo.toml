@@ -1,16 +1,8 @@
 [package]
-name = "iterator"
+name = "weakref"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-
-[[bin]]
-name = "basic"
-src = "src/bin/basic/main.rs"
-
-[[bin]]
-name = "tree"
-src = "src/bin/tree/main.rs"
