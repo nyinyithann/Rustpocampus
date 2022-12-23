@@ -25,6 +25,8 @@
         - [Generic Associated Type](./traits/gat.md)
     - [Fully Qualified Syntax](./traits/fully-qualified-syntax.md)
     - [Supertraits](./traits/supertraits.md)
+    - [Everyday Traits](./traits/everyday_traits/everyday-traits.md)
+        - [Deref & DerefMut](./traits/everyday_traits/deref_derefmut.md)
 - [Closure](./closure/closure-basic.md)
     - [Fn, FnOnce, FnMut](./closure/closure-traits.md)
 - [Iterator](./iterator/iterator.md)
