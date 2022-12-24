@@ -16,6 +16,10 @@ pub trait Deref {
 
     fn deref(&self) -> &Self::Target;
 }
+
+pub trait DerefMut: Deref {
+    fn deref_mut(&mut self) -> &mut Self::Target;
+}
 ```
 
 #### Deref implementation
@@ -32,6 +36,7 @@ impl<T> SmartBox<T> {
 }
 
 use std::ops::Deref;
+use std::ops::DerefMut;
 impl<T> Deref for SmartBox<T> {
     type Target = T;
     fn deref(&self) -> &Self::Target {
@@ -39,8 +44,24 @@ impl<T> Deref for SmartBox<T> {
     }
 }
 
+impl<T> DerefMut for SmartBox<T> {
+    fn deref_mut(&mut self) -> &mut Self::Target {
+        &mut self.value
+    }
+}
+
 fn main() {
-   let sb = SmartBox::new(10);
+   let mut sb = SmartBox::new(10);
    println!("{}", *sb);
+   *sb = 20;
+   println!("{}", *sb);
+
+   let mut name = SmartBox::new("Ryan");
+   *name = "Ryan Zan";
+   println!("{}", *name);
+   
+   let mut name = SmartBox::new(String::from("Hello"));
+   (*name).push_str(" Zan Thumyat");
+   println!("{}", *name);
 }
 ```
