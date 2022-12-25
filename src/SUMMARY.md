@@ -27,6 +27,7 @@
     - [Supertraits](./traits/supertraits.md)
     - [Everyday Traits](./traits/everyday_traits/everyday-traits.md)
         - [Deref & DerefMut](./traits/everyday_traits/deref_derefmut.md)
+        - [Drop](./traits/everyday_traits/drop.md)
 - [Closure](./closure/closure-basic.md)
     - [Fn, FnOnce, FnMut](./closure/closure-traits.md)
 - [Iterator](./iterator/iterator.md)
