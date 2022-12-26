@@ -19,3 +19,23 @@ One well-known problem iwht using reference counts to manage memory is that, if 
 
 ![image](../assets/eachother.png)
 
+#### Example
+![Image](../assets/rc_list.svg)
+```rust 
+use std::rc::Rc;
+
+#[derive(Debug)]
+enum List<T> {
+    Nil,
+    Cons(T, Rc<List<T>>)
+}
+
+fn main() {
+    use crate::List::{Cons, Nil};
+    let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));
+    let b = Rc::new(Cons(3, Rc::clone(&a)));
+    let c = Rc::new(Cons(4, Rc::clone(&a)));
+    println!("{b:?}");
+    println!("{c:?}");
+}
+```
