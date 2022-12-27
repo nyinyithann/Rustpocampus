@@ -5,6 +5,7 @@
     - [Stack & Heap](./ownership/stack_heap.md)
     - [Box](./ownership/box.md)
     - [Rc And Arc](./ownership/rc_arc.md)
+    - [Interior Mutability](./ownership/interior_mutability.md)
     - [Weak Reference](./ownership/weak_ref.md)
     - [Notes](./ownership/notes.md)
     - [Illustrations](./ownership/illustrations.md)
