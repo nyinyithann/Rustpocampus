@@ -4,8 +4,25 @@
 - With [`RefCell<T>`](https://doc.rust-lang.org/std/cell/struct.RefCell.html), the following borrowing rules are enfored at __runtime__. If the rules are broken, the program will panic and exit
     - At any given time, you can have either (but not both) one mutable reference or any number of immutable references.
     - References must always be valid.
+- `Cell<T>` and `RefCell<T>` are not thread safe. Use `Mutex<T>`, `RwLock<T>` or `atomic` types for multi threading.
 
-#### Basic Example 
+#### Example [`Cell<T>`](https://doc.rust-lang.org/std/cell/struct.Cell.html)
+```rust 
+use std::cell::Cell;
+
+struct Counter {
+    value : Cell<i32>
+}
+
+fn main() {
+    let c = Counter { value : Cell::new(0) };
+    println!("{:?}", c.value);
+    c.value.set(1);
+    println!("{:?}", c.value);
+}
+```
+
+#### Basic Example [`RefCell<T>`](https://doc.rust-lang.org/std/cell/struct.RefCell.html)
 ```rust 
 use std::cell::RefCell;
 
@@ -21,6 +38,18 @@ fn main() {
 
     *foo.value.borrow_mut() = 10;
     println!("{:?}", foo.value);
+}
+```
+#### `RefCell<T>` dynamically enforces the borrow checking rules and panic if violates.
+```rust
+fn main() {
+    use std::cell::RefCell;
+    let a = RefCell::new(String::from("hello"));
+    let alias = a.borrow();
+    println!("{alias}");
+
+    let mut m = a.borrow_mut(); // panic here cause already borrowed mutably
+    m.push_str(" world");
 }
 ```
 
