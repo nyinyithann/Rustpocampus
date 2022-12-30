@@ -35,6 +35,8 @@
     - [Implemting Iterator](./iterator/implement-iterator.md)
 - [Error Handling](./error_handling/error-handling.md)
 - [Patterns](./patterns/patterns.md)
+- [Fearless Concurrency](./concurrency/concurrency-intro.md)
+    - [Thread](./concurrency/thread.md)
 - [Resources](./resources.md)
 - [Pictures](./assets/container-cheatsheet.md)
 

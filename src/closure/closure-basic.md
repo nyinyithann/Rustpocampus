@@ -30,27 +30,6 @@ fn main() {
     let mut mutable_borrow = || list.push(4);
     mutable_borrow();
     mutable_borrow();
-    /*
-       If we uncomment the line below, we will get error because Rust doesn't allow
-       mutable borrow and immutable borrow at the same time.
-       Rust allows either one mutable borrow or multiple immutable borrows
-    */
-    println!("before mutable borrow: {:?}", list);
-    
-    println!("after mutable borrow, list is {:?}", list);
-}
-```
-
-```rust
-fn main() {
-    let mut list = vec![1, 2, 3];
-    // one way to fix above issue is by making the closure go out of scope
-    {
-        let mut mutable_borrow = || list.push(4);
-        mutable_borrow();
-        mutable_borrow();
-    }
-    println!("before mutable borrow: {:?}", list);
     println!("after mutable borrow, list is {:?}", list);
 }
 ```
@@ -96,7 +75,7 @@ fn main() {
 fn main() {
     let magic_string = String::from("abracadaba");
     let _closure = || magic_string;
-    println!("{:?}", magic_string);
+    println!("{:?}", magic_string); // throw error here
 }
 ```
 > A closure that take ownership of environment variable(s) can be called only **once**.
