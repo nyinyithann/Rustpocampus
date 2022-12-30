@@ -69,8 +69,13 @@ fn main() {
     // the following code throws compile time error cuase
     // the thread can't borrow v
     // closure may outlive the current function
+    
     let handler = thread::spawn(|| println!("{:?}", v));
-    handler.join().unwrap();
+
+    // to fix the error, we need to move v into the closure like below
+    // let handler = thread::spawn(move || println!("{:?}", v));
+   
+   handler.join().unwrap();
 }
 ```
 
