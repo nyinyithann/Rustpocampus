@@ -37,6 +37,7 @@
 - [Patterns](./patterns/patterns.md)
 - [Fearless Concurrency](./concurrency/concurrency-intro.md)
     - [Thread](./concurrency/thread.md)
+    - [Channel](./concurrency/channel.md)
 - [Resources](./resources.md)
 - [Pictures](./assets/container-cheatsheet.md)
 
