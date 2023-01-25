@@ -35,6 +35,7 @@
 - [The Book - first edition](https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/README.html)
 - [Rust Tour](https://tourofrust.com/TOC_en.html)
 - [Easy Rust](https://dhghomon.github.io/easy_rust/Chapter_0.html)
+- [LifetimeKata](https://tfpk.github.io/lifetimekata)
 
 ### Blogs
 - [Everything about rust](https://fasterthanli.me/tags/rust)
@@ -65,3 +66,6 @@
 
 ### Data Structures and Algorithms
 - [DSA Github](https://github.com/TheAlgorithms/Rust)
+
+### Free Books
+- [Rust Atomics and Locks](https://marabos.nl/atomics/)

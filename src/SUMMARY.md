@@ -9,6 +9,8 @@
     - [Weak Reference](./ownership/weak_ref.md)
     - [Notes](./ownership/notes.md)
     - [Illustrations](./ownership/illustrations.md)
+- [Reference & lifetime](./reference_and_lifetime/ref_and_lifetime_intro.md)
+    - [Dereferencing](./reference_and_lifetime/dereferencing.md)
 - [Struct](./structs/struct.md)
     - [Tuple struct](./structs/tuple-struct.md)
     - [Unit struct](./structs/unit-struct.md)
