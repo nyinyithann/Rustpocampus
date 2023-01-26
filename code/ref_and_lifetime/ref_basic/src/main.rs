@@ -1,6 +1,6 @@
 pub struct Person {
-    name : &'static str,
-    age : f32
+    name: &'static str,
+    age: f32,
 }
 
 fn main() {
@@ -10,12 +10,12 @@ fn main() {
 
     let mut y = 11;
     let ry = &mut y;
-    *ry += 1; 
+    *ry += 1;
     assert!(*ry == 12);
 
     let john = Person {
-        name : "John",
-        age : 40.3
+        name: "John",
+        age: 40.3,
     };
     let john_ref = &john;
 
@@ -23,5 +23,10 @@ fn main() {
     assert!((*john_ref).name == "John");
     assert!(john_ref.age == 40.3);
     assert!((*john_ref).age == 40.3);
-    
+
+    let name : &'static str = "ryan";
+    let mut ret = String::new();
+    for x in name.chars().rev() {
+       ret.push(x); 
+    } 
 }

@@ -1,6 +1,7 @@
 # Summary
 
 - [Introduction](./introduction.md)
+- [Formatted Print](./formatted_print/formatting.md)
 - [Ownership & Borrowing](./ownership/ownership_borrowing.md)
     - [Stack & Heap](./ownership/stack_heap.md)
     - [Box](./ownership/box.md)
