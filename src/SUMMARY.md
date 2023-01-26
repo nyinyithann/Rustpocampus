@@ -2,6 +2,7 @@
 
 - [Introduction](./introduction.md)
 - [Formatted Print](./formatted_print/formatting.md)
+    - [Format Syntax](./formatted_print/syntax.md)
 - [Ownership & Borrowing](./ownership/ownership_borrowing.md)
     - [Stack & Heap](./ownership/stack_heap.md)
     - [Box](./ownership/box.md)

@@ -26,6 +26,12 @@ let seven = 7;
 println!("{one} {two} ... {seven}", one = 1, two = 2);
 ```
 
+#### Escaping
+The literal characters `{` and `}` may be included in a string by preceding them with the same character.
+```rust 
+println!("Hello, {{}} {}", "{World!}");
+```
+
 #### Using `write!` of `std::io::Write` and `std::fmt::Write`
 ```rust, ignore, editable, mdbook-runnable
 use std::io::{self, Write as _};
@@ -66,5 +72,3 @@ fn main() -> io::Result<()> {
     Ok(())
 }
 ```
-
-
