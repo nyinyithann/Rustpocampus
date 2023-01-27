@@ -12,6 +12,8 @@ Which obey the following rules:
 - A reference cannot outlive its referent
 - A mutable reference cannot be shared
 
+> References have a lifetime associated with them, which specifies the scope of the reference. The lifetime of a reference must be a subset of the lifetime of the value it references. This ensures that a reference never points to a value that no longer exists.
+
 #### Shared Reference
 - Rust allows multiple shared references
 - Rust doesn't allow shared referencees to mutate their referents
