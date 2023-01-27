@@ -1,4 +1,6 @@
 # Trait Object
+- A trait object is a fat pointer which is two-word values carrying the address of some value, along with some further information necessary to put the value to use.
+- A trait object is a reference to a value that implements a certain trait.
 - A trait object is an opaque value of another type that implements an object safe base trait, its auto traits(`Send`, `Sync`, `Unpin`, `UnwindSafe`, `RefUnwindSafe`), and any supertraits of the base trait.
 - Trait objects are written as the keyword `dyn` followed by a set of trait bounds - the first must be auto traits, and one life time if any. Paths to trait may be parenthesized. 
 

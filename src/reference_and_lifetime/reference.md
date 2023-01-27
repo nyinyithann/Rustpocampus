@@ -65,3 +65,61 @@ assert_eq!((*(*(*rrr))).y, p1.y);
 
 #### Borrow an illustration from The Programming Rust Book
 ![image](../assets/refs_to_refs.jpg)
+
+#### Comparing References
+> Like the . operator, Rust's comparison operators "see through" any number of references, as long as both operands have the same type.
+```rust 
+let a = 10;
+let b = 20;
+let c = 10;
+
+let ra = &a;
+let rb = &b;
+let rc = &c;
+
+let rra = &ra;
+let rrb = &rb;
+let rrc = &rc;
+
+assert!(rra < rrb);
+assert!(rra <= rrb);
+assert!(rra == rrc);
+assert!(rrb > rrc);
+assert!(rrb >= rrc);
+
+// both operands should have same level of references
+assert!(rrb >= &&10); 
+
+// Arithmetic operators can see through only one level of references
+assert!(rb == &(ra + &10));
+```
+
+> Arithmetic operators can see through only one level of references
+
+#### Checking references pointing to same memory location
+> `std::ptr::eq`
+```rust 
+let x = 1;
+
+let rx1 = &x;
+let rx2 = &x;
+
+println!("{}", std::ptr::eq(rx1, rx2));
+```
+
+> References are never Null and there is no default initial value for a reference. If you need a value that is either a reference to something or not, use the type `Option<&T>`.
+
+#### Borrowing references to arbitrary expressions
+Rust allows you borrow a reference to the value of any sort of expression at all.
+```rust
+fn get_str() -> String {
+    "hello".to_string()
+}
+
+fn main() {
+    // Rust here create an anonymous variable 
+    // and make sure it is variable as long as the variable s
+    let s = &get_str(); 
+    println!(s);
+}
+```
