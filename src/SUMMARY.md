@@ -14,6 +14,7 @@
 - [Reference & lifetime](./reference_and_lifetime/ref_and_lifetime_intro.md)
     - [Reference](./reference_and_lifetime/reference.md)
     - [Fat & Thin Pointer](./reference_and_lifetime/fat_thin_pointer.md)
+    - [Lifetime](./reference_and_lifetime/lifetime.md)
 - [Struct](./structs/struct.md)
     - [Tuple struct](./structs/tuple-struct.md)
     - [Unit struct](./structs/unit-struct.md)
