@@ -11,6 +11,16 @@ A lifetime is a construct in Rust that represents the scope of a reference. The 
 `&'a i32`     // a reference with explicit lifetime annotation<br/>
 `&'a mut i32` // a mutable reference with explicit lifetime annotation
 
+#### Lifetime elision rules
+Lifetime elision rules are a set of rules in Rust that allow the compiler to infer lifetimes in certain cases, without the need for explicit annotations.
+
+- First Rule: Rust assigns a different lifetime paramater to each lifetime in each input type.
+    - `fn foo(x : &i32)` becomes `fn foo<'a>(x : &'a i32)`
+    - `fn foo(x : &i32, y : &i32)` becomes `fn foo<'a, 'b>(x : &'a i32, y : &'b i32)`
+    - `fn foo(x : &ImportantExcerpt)` becomes `fn foo<'a>(x : &'a ImportantExcerpt)`
+- Second Rule: If there is exactly one input lifetime parameter, that lifetime is assigned to all output lifetime parameters: `fn foo<'a>(x: &'a i32) -> &'a i32`
+- Third Rule: If there are multiple input lifetime parameters, but one of them is `&self` or `&mut self` because this is a method, the lifetime of self is assigned to all output lifetime parameters.
+
 #### Dangling reference example
 ```rust 
 // 'b is smaller than 'a and Rust rejects the program
@@ -41,7 +51,7 @@ fn longest_2<'a>(fst : &str, snd: &str) -> &'a str {
 ```
 
 #### Passing references and returning a reference from function
-Rust sometimes needs explicit lifetime annotations for passing and returning references
+Lifetime annotations need to be explicitly provided if Rust cannot infer lifetimes for input or output paramaters.
 
 ```rust 
 fn max<'a>(a : &'a i32, b : &'a i32) -> &'a i32 {
@@ -50,6 +60,11 @@ fn max<'a>(a : &'a i32, b : &'a i32) -> &'a i32 {
     } else {
         b
     }
+}
+
+// this is OK 
+fn max<'a>(a : &'a i32, b : &i32) -> &'a i32 {
+    a
 }
 
 // dangling pointer case here. won't compile
@@ -69,4 +84,28 @@ fn main() {
     println!("{result}");
 }
 
+```
+
+#### Lifetime with mutable references Example
+2 lifetime annotations - one for mutable referenced container and one for the shared value - must be explicitly provided in the following example.
+```rust
+fn insert_str<'c, 'v>(source: &'c mut String, s : &'v str) {
+    source.push_str(s);
+}
+
+fn insert_num<'c, 'v>(nums : &'c mut Vec<&'v i32>, num : &'v i32) {
+    nums.push(num);
+}
+
+fn main() {
+    let mut source = String::new();
+    insert_str(&mut source, "hello");
+    insert_str(&mut source, " world");
+    println!("{:?}", source);
+
+    let mut nums = Vec::new();
+    insert_num(&mut nums, &10);
+    insert_num(&mut nums, &11);
+    println!("{:?}", nums);
+}
 ```
