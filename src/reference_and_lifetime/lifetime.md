@@ -6,12 +6,12 @@ A lifetime is a construct in Rust that represents the scope of a reference. The 
 
 > The main aim of lifetimes is to prevent __dangling references__. -- The Book
 
-#### Lifetime annotation ('a pronounce __tick a__)
+## Lifetime annotation ('a pronounce __tick a__)
 `&i32`        // a reference without lifetime annotation<br/>
 `&'a i32`     // a reference with explicit lifetime annotation<br/>
 `&'a mut i32` // a mutable reference with explicit lifetime annotation
 
-#### Lifetime elision rules
+## Lifetime elision rules
 Lifetime elision rules are a set of rules in Rust that allow the compiler to infer lifetimes in certain cases, without the need for explicit annotations.
 
 - First Rule: Rust assigns a different lifetime paramater to each lifetime in each input type.
@@ -21,6 +21,7 @@ Lifetime elision rules are a set of rules in Rust that allow the compiler to inf
 - Second Rule: If there is exactly one input lifetime parameter, that lifetime is assigned to all output lifetime parameters: `fn foo<'a>(x: &'a i32) -> &'a i32`
 - Third Rule: If there are multiple input lifetime parameters, but one of them is `&self` or `&mut self` because this is a method, the lifetime of self is assigned to all output lifetime parameters.
 
+## Lifetimes on functions
 #### Dangling reference example
 ```rust 
 // 'b is smaller than 'a and Rust rejects the program
@@ -109,3 +110,69 @@ fn main() {
     println!("{:?}", nums);
 }
 ```
+
+## Lifetimes on Types 
+Whenever a reference type appears inside another type's definition, you must write out its lifetime.
+```rust
+#[derive(Debug)]
+struct FirstLast<'a> {
+    first: &'a i32,
+    second: &'a i32,
+}
+
+// no need to explicitly annotate lifetimes here 
+// due to the first and second rule of lifetime elision rules
+fn get_first_last(source: &[i32]) -> FirstLast {
+    FirstLast {
+        first : &source[0],
+        second: &source[source.len() - 1],
+    }
+}
+
+fn main() {
+   let nums = vec![3,4,5,2,3,4,1,-2];
+   let fl = get_first_last(&nums); 
+   println!("{fl:?}");
+}
+```
+
+Lifetime annotation on Enums.
+```rust
+enum MaybeString<'a> {
+    Maybe(&'a str),
+    Nothing
+} 
+```
+
+## Lifetimes on Method definition
+```rust 
+#[derive(Debug)]
+struct Excerpt<'a> {
+    part : &'a str
+}
+
+impl<'a> Excerpt<'a> {
+    fn new(part : &'a str) -> Self {
+       Excerpt { part } 
+    }
+
+    fn display_and_return_part(&self) -> &str {
+        println!("{self:?}");
+        self.part
+    }
+}
+
+fn main() {
+    let s = "hello world";
+    let expt = Excerpt::new(s.split(' ').next().unwrap());
+    expt.display_and_return_part();
+}
+```
+
+## The Static Lifetime (`'static`)
+
+```rust 
+let s : &'static str = "I'm static string"
+```
+`I'm static string` is stored directly in the program's binary which is located in static memory region.
+
