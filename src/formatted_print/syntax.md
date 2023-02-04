@@ -75,6 +75,7 @@ parameter := argument '$'
     - `#X` precedes the argument with a 0x
     - `#b` precedes the argument with a 0b
     - `#o` precedes the argument with a 0o
+    
     ```rust 
     println!("{:#?}", "test"); // => "test"
     println!("{:#x}", 16); // => 0x10
@@ -88,3 +89,15 @@ parameter := argument '$'
                                         //    )
     ```
 
+#### Formatting Traits
+-   nothing ⇒ Display
+-   ? ⇒ Debug
+-   x? ⇒ Debug with lower-case hexadecimal integers
+-   X? ⇒ Debug with upper-case hexadecimal integers
+-   o ⇒ Octal
+-   x ⇒ LowerHex
+-   X ⇒ UpperHex
+-   p ⇒ Pointer
+-   b ⇒ Binary
+-   e ⇒ LowerExp
+-   E ⇒ UpperExp

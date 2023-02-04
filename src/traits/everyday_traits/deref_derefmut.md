@@ -10,6 +10,8 @@ Rust does __deref coercion__ when it finds types and trait implementations in th
 - From `&mut` T to `&mut` U when T: DerefMut<Target=U>
 - From `&mut` T to `&U` when T: Deref<Target=U>
 
+> `&String` can be coerced to `&str`, `&Vec<T>` can be coerced to `&[T]`. Many method calls on `String` and `Vec<T>` are actually calls to methods on `str` and `[T]` respectively, via _deref coercions_.
+
 ```rust
 pub trait Deref {
     type Target: ?Sized;
@@ -50,6 +52,10 @@ impl<T> DerefMut for SmartBox<T> {
     }
 }
 
+fn say_hello(name : &str) {
+    println!("Hello, {name}");
+}
+
 fn main() {
    let mut sb = SmartBox::new(10);
    println!("{}", *sb);
@@ -60,8 +66,10 @@ fn main() {
    *name = "Ryan Zan";
    println!("{}", *name);
    
-   let mut name = SmartBox::new(String::from("Hello"));
-   (*name).push_str(" Zan Thumyat");
+   let mut name = SmartBox::new(String::from("Ryan Zan"));
+   (*name).push_str(" Thumyat");
    println!("{}", *name);
+
+   say_hello(&name);
 }
 ```
