@@ -1,0 +1,3317 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rustocampus</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="A place to remember Rust">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="formatted_print/formatting.html"><strong aria-hidden="true">2.</strong> Formatted Print</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="formatted_print/syntax.html"><strong aria-hidden="true">2.1.</strong> Format Syntax</a></li></ol></li><li class="chapter-item expanded "><a href="ownership/ownership_borrowing.html"><strong aria-hidden="true">3.</strong> Ownership &amp; Borrowing</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ownership/stack_heap.html"><strong aria-hidden="true">3.1.</strong> Stack &amp; Heap</a></li><li class="chapter-item expanded "><a href="ownership/box.html"><strong aria-hidden="true">3.2.</strong> Box</a></li><li class="chapter-item expanded "><a href="ownership/rc_arc.html"><strong aria-hidden="true">3.3.</strong> Rc And Arc</a></li><li class="chapter-item expanded "><a href="ownership/interior_mutability.html"><strong aria-hidden="true">3.4.</strong> Interior Mutability</a></li><li class="chapter-item expanded "><a href="ownership/weak_ref.html"><strong aria-hidden="true">3.5.</strong> Weak Reference</a></li><li class="chapter-item expanded "><a href="ownership/notes.html"><strong aria-hidden="true">3.6.</strong> Notes</a></li><li class="chapter-item expanded "><a href="ownership/illustrations.html"><strong aria-hidden="true">3.7.</strong> Illustrations</a></li></ol></li><li class="chapter-item expanded "><a href="reference_and_lifetime/ref_and_lifetime_intro.html"><strong aria-hidden="true">4.</strong> Reference &amp; lifetime</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="reference_and_lifetime/reference.html"><strong aria-hidden="true">4.1.</strong> Reference</a></li><li class="chapter-item expanded "><a href="reference_and_lifetime/fat_thin_pointer.html"><strong aria-hidden="true">4.2.</strong> Fat &amp; Thin Pointer</a></li><li class="chapter-item expanded "><a href="reference_and_lifetime/lifetime.html"><strong aria-hidden="true">4.3.</strong> Lifetime</a></li></ol></li><li class="chapter-item expanded "><a href="structs/struct.html"><strong aria-hidden="true">5.</strong> Struct</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="structs/tuple-struct.html"><strong aria-hidden="true">5.1.</strong> Tuple struct</a></li><li class="chapter-item expanded "><a href="structs/unit-struct.html"><strong aria-hidden="true">5.2.</strong> Unit struct</a></li></ol></li><li class="chapter-item expanded "><a href="generics/generics.html"><strong aria-hidden="true">6.</strong> Generics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="generics/monomorphization.html"><strong aria-hidden="true">6.1.</strong> Monomorphization</a></li></ol></li><li class="chapter-item expanded "><a href="traits/traits.html"><strong aria-hidden="true">7.</strong> Traits</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="traits/impl-trait.html"><strong aria-hidden="true">7.1.</strong> impl trait</a></li><li class="chapter-item expanded "><a href="traits/trait-bound.html"><strong aria-hidden="true">7.2.</strong> Trait Bound</a></li><li class="chapter-item expanded "><a href="traits/conditionally-implement-methods.html"><strong aria-hidden="true">7.3.</strong> Conditionally Implement Methods</a></li><li class="chapter-item expanded "><a href="traits/blanket-implementations.html"><strong aria-hidden="true">7.4.</strong> Blanket Implementations</a></li><li class="chapter-item expanded "><a href="traits/trait-object.html"><strong aria-hidden="true">7.5.</strong> Trait Object</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="traits/trait-object-layout.html"><strong aria-hidden="true">7.5.1.</strong> Trait Object Layout</a></li><li class="chapter-item expanded "><a href="traits/trait-object-lifetime.html"><strong aria-hidden="true">7.5.2.</strong> Trait Object Lifetime</a></li></ol></li><li class="chapter-item expanded "><a href="traits/placeholder-type.html"><strong aria-hidden="true">7.6.</strong> Associated Type</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="traits/gat.html"><strong aria-hidden="true">7.6.1.</strong> Generic Associated Type</a></li></ol></li><li class="chapter-item expanded "><a href="traits/fully-qualified-syntax.html"><strong aria-hidden="true">7.7.</strong> Fully Qualified Syntax</a></li><li class="chapter-item expanded "><a href="traits/supertraits.html"><strong aria-hidden="true">7.8.</strong> Supertraits</a></li><li class="chapter-item expanded "><a href="traits/everyday_traits/everyday-traits.html"><strong aria-hidden="true">7.9.</strong> Everyday Traits</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="traits/everyday_traits/deref_derefmut.html"><strong aria-hidden="true">7.9.1.</strong> Deref &amp; DerefMut</a></li><li class="chapter-item expanded "><a href="traits/everyday_traits/drop.html"><strong aria-hidden="true">7.9.2.</strong> Drop</a></li><li class="chapter-item expanded "><a href="traits/everyday_traits/from.html"><strong aria-hidden="true">7.9.3.</strong> From</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="closure/closure-basic.html"><strong aria-hidden="true">8.</strong> Closure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="closure/closure-traits.html"><strong aria-hidden="true">8.1.</strong> Fn, FnOnce, FnMut</a></li></ol></li><li class="chapter-item expanded "><a href="iterator/iterator.html"><strong aria-hidden="true">9.</strong> Iterator</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="iterator/implement-iterator.html"><strong aria-hidden="true">9.1.</strong> Implemting Iterator</a></li></ol></li><li class="chapter-item expanded "><a href="error_handling/error-handling.html"><strong aria-hidden="true">10.</strong> Error Handling</a></li><li class="chapter-item expanded "><a href="patterns/patterns.html"><strong aria-hidden="true">11.</strong> Patterns</a></li><li class="chapter-item expanded "><a href="concurrency/concurrency-intro.html"><strong aria-hidden="true">12.</strong> Fearless Concurrency</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="concurrency/thread.html"><strong aria-hidden="true">12.1.</strong> Thread</a></li><li class="chapter-item expanded "><a href="concurrency/channel.html"><strong aria-hidden="true">12.2.</strong> Channel</a></li><li class="chapter-item expanded "><a href="concurrency/shared-state.html"><strong aria-hidden="true">12.3.</strong> Shared-State</a></li></ol></li><li class="chapter-item expanded "><a href="resources.html"><strong aria-hidden="true">13.</strong> Resources</a></li><li class="chapter-item expanded "><a href="assets/container-cheatsheet.html"><strong aria-hidden="true">14.</strong> Pictures</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Rustocampus</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/nyinyithann/Rustpocampus" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><strong>Hippocampus</strong>:
+A brain region that helps people to remember by linking different parts of a memory together.</p>
+<p><strong>Rustocampus</strong>:
+A place that helps me to remember Rust.</p>
+<p>Rustocampus is a work-in-progress, and it always will be. I'll keep updating it while exploring Rust.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="formatted-print"><a class="header" href="#formatted-print">Formatted Print</a></h1>
+<p><a href="https://doc.rust-lang.org/std/fmt/#macros"><code>std::fmt</code></a> has utilities for formatting and printing <code>Strings</code>. Some of which include:</p>
+<ul>
+<li><code>format!</code>: write formatted text to <code>String</code></li>
+<li><code>print!</code>: same as <code>format!</code> but the text is printed to the console
+(io::stdout).</li>
+<li><code>println!</code>: same as <code>print!</code> but a newline is appended.</li>
+<li><code>eprint!</code>: same as <code>print!</code> but the text is printed to the standard error
+(io::stderr).</li>
+<li><code>eprintln!</code>: same as <code>eprint!</code> but a newline is appended.</li>
+<li><code>write!</code>: emit the format string to a specified stream.</li>
+<li><code>writeln!</code> same as <code>write!</code> but a newline is appended</li>
+</ul>
+<h4 id="positional-paramaters"><a class="header" href="#positional-paramaters">Positional paramaters</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!(&quot;{1} {} {0} {}&quot;, 1, 2); // =&gt; 2 1 1 2
+
+let formatted : String = format!(&quot;{1} {} {0} {}&quot;, 1, 2);
+println!(&quot;{formatted}&quot;); // =&gt; 2 1 1 2
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="named-paramaters"><a class="header" href="#named-paramaters">Named paramaters</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let seven = 7;
+println!(&quot;{one} {two} ... {seven}&quot;, one = 1, two = 2);
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="escaping"><a class="header" href="#escaping">Escaping</a></h4>
+<p>The literal characters <code>{</code> and <code>}</code> may be included in a string by preceding them with the same character.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!(&quot;Hello, {{}} {}&quot;, &quot;{World!}&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="using-write-of-stdiowrite-and-stdfmtwrite"><a class="header" href="#using-write-of-stdiowrite-and-stdfmtwrite">Using <code>write!</code> of <code>std::io::Write</code> and <code>std::fmt::Write</code></a></h4>
+<pre><pre class="playground"><code class="language-rust  ignore  editable  mdbook-runnable edition2021">use std::io::{self, Write as _};
+use std::fmt::Write as _;
+
+fn main() -&gt; io::Result&lt;()&gt; {
+    
+    write!(&amp;mut io::stdout(), &quot;Hello, {}!&quot;, &quot;World&quot;)?;
+
+    let mut vec = Vec::new();
+    write!(&amp;mut vec, &quot;Hello, {}!&quot;, &quot;World&quot;)?;
+    assert_eq!(vec, b&quot;Hello, World!&quot;);
+
+    let mut s = String::new();
+    write!(&amp;mut s, &quot;Life is {}&quot;, &quot;Bootiful&quot;); // std::fmt::Write
+    assert_eq!(s, &quot;Life is Bootiful&quot;);
+    
+    Ok(())
+}
+</code></pre></pre>
+<h4 id="using-format_args"><a class="header" href="#using-format_args">Using <a href="https://doc.rust-lang.org/std/fmt/#format_args"><code>format_args!</code></a></a></h4>
+<ul>
+<li>result is of type <code>fmt::Arguments</code></li>
+<li>result can be passed around</li>
+<li>no heap allocation</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust  ignore  editable  mdbook-runnable edition2021">use std::io::{self, Write};
+use std::fmt::{self};
+
+fn write_error_log(arg: fmt::Arguments) -&gt; std::io::Result&lt;()&gt;{
+    writeln!(&amp;mut io::stdout(), &quot;{}&quot;, arg )?;
+    Ok(())
+}
+
+fn main() -&gt; io::Result&lt;()&gt; {
+    write_error_log(format_args!(&quot;Error number is {}.&quot;, 1))?;
+    Ok(())
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="format-syntax"><a class="header" href="#format-syntax">Format Syntax</a></h1>
+<pre><code>format_string := text [ maybe_format text ] *
+maybe_format := '{' '{' | '}' '}' | format
+format := '{' [ argument ] [ ':' format_spec ] [ ws ] * '}'
+argument := integer | identifier
+
+format_spec := [[fill]align][sign]['#']['0'][width]['.' precision]type
+fill := character
+align := '&lt;' | '^' | '&gt;'
+sign := '+' | '-'
+width := count
+precision := count | '*'
+type := '' | '?' | 'x?' | 'X?' | identifier
+count := parameter | integer
+parameter := argument '$'
+</code></pre>
+<h4 id="argumentfill-alignsignwidth--precision-type"><a class="header" href="#argumentfill-alignsignwidth--precision-type"><pre>{[argument]':'[[fill] align][sign]['#'][width [$]]['.' precision [$]][type]}</pre></a></h4>
+<ul>
+<li>
+<p>argument =&gt; number(0, 1, 2, ..) or name</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!(&quot;{0} {1}&quot;, &quot;arg_1&quot;, &quot;arg_2&quot;); // with argument number
+let arg_1 = &quot;arg_1&quot;;
+let arg_2 = &quot;arg_2&quot;;
+println!(&quot;{arg_1} {arg_2}&quot;); // with argument name
+<span class="boring">}
+</span></code></pre></pre>
+</li>
+<li>
+<p>fill =&gt; the character to fill empty spaces, if <code>width</code> is specified</p>
+</li>
+<li>
+<p>align =&gt; left(&lt;), center (^), right (&gt;), if <code>width</code> is specified</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!(&quot;{:!&gt;6}&quot;, &quot;@@&quot;);     // !!!!@@
+println!(&quot;{0:!&lt;6}&quot;, &quot;@@&quot;);    // @@!!!!
+let double_at = &quot;@@&quot;;
+println!(&quot;{double_at:!^6}&quot;);  // !!@@!!
+<span class="boring">}
+</span></code></pre></pre>
+</li>
+<li>
+<p>width [$] =&gt; width to be padded with <code>fill</code> (default to space), can be number or paramater, if paramater '$' must be used</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!(&quot;{:0width$}&quot;, 1, width = 4);     // 0001
+println!(&quot;{:0&lt;width$}&quot;, 1, width = 4);    // 1000
+println!(&quot;{:0^width$}&quot;, 1, width = 4);    // 0100
+
+println!(&quot;{:01$}&quot;, 1, width = 4);     // 0001
+println!(&quot;{:0&lt;1$}&quot;, 1, width = 4);    // 1000
+println!(&quot;{:0^1$}&quot;, 1, width = 4);    // 0100
+
+println!(&quot;{:!&gt;width$}&quot;, &quot;1&quot;, width = 4);  // !!!1
+println!(&quot;{:!&lt;width$}&quot;, &quot;1&quot;, width = 4);  // 1!!!
+println!(&quot;{:!^width$}&quot;, &quot;1&quot;, width = 4);  // !1!!
+
+println!(&quot;{:&gt;4}&quot;, 1); // padded with space (space is default)
+<span class="boring">}
+</span></code></pre></pre>
+</li>
+<li>
+<p>sign =&gt; <code>+</code> can be used for numeric types to display sign (negative sign is only displayed for signed values)</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!(&quot;{}&quot;, 1000);   // 1000
+println!(&quot;{:+}&quot;, 1000); // +1000
+<span class="boring">}
+</span></code></pre></pre>
+</li>
+<li>
+<p>precision [$] =&gt; decimal digits for number or max width for non-number, can be number or paramater, if paramater '$' must be used. <code>.*</code> means that this {...} is associated with two format inputs rather than one:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// the output of all lines below is
+// =&gt; Hello x is 0.01000
+println!(&quot;Hello {0} is {1:.5}&quot;, &quot;x&quot;, 0.01);
+println!(&quot;Hello {1} is {2:.0$}&quot;, 5, &quot;x&quot;, 0.01);
+println!(&quot;Hello {0} is {2:.1$}&quot;, &quot;x&quot;, 5, 0.01);
+println!(&quot;Hello {} is {:.*}&quot;,    &quot;x&quot;, 5, 0.01);
+println!(&quot;Hello {1} is {2:.*}&quot;,  5, &quot;x&quot;, 0.01);
+println!(&quot;Hello {} is {2:.*}&quot;,   &quot;x&quot;, 5, 0.01);
+println!(&quot;Hello {} is {number:.prec$}&quot;, &quot;x&quot;, prec = 5, number = 0.01);
+<span class="boring">}
+</span></code></pre></pre>
+</li>
+<li>
+<p><code>#</code> indicates that the &quot;alternate” form of printing should be used. The alternate forms are:</p>
+<ul>
+<li><code>#?</code> pretty-print the Debug formatting (adds linebreaks and indentation)</li>
+<li><code>#x</code> precedes the argument with a 0x</li>
+<li><code>#X</code> precedes the argument with a 0x</li>
+<li><code>#b</code> precedes the argument with a 0b</li>
+<li><code>#o</code> precedes the argument with a 0o</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!(&quot;{:#?}&quot;, &quot;test&quot;); // =&gt; &quot;test&quot;
+println!(&quot;{:#x}&quot;, 16); // =&gt; 0x10
+println!(&quot;{:#X}&quot;, 16); // =&gt; 0x10
+println!(&quot;{:#b}&quot;, 2); // =&gt; 0b10
+println!(&quot;{:#o}&quot;, 8); // =&gt; 0o10
+println!(&quot;{:#?}&quot;, (1, &quot;one&quot;, 3.3)); // =&gt; (
+                                    //      1,
+                                    //      &quot;one&quot;,
+                                    //      3.3,
+                                    //    )
+<span class="boring">}
+</span></code></pre></pre>
+</li>
+</ul>
+<h4 id="formatting-traits"><a class="header" href="#formatting-traits">Formatting Traits</a></h4>
+<ul>
+<li>nothing ⇒ Display</li>
+<li>? ⇒ Debug</li>
+<li>x? ⇒ Debug with lower-case hexadecimal integers</li>
+<li>X? ⇒ Debug with upper-case hexadecimal integers</li>
+<li>o ⇒ Octal</li>
+<li>x ⇒ LowerHex</li>
+<li>X ⇒ UpperHex</li>
+<li>p ⇒ Pointer</li>
+<li>b ⇒ Binary</li>
+<li>e ⇒ LowerExp</li>
+<li>E ⇒ UpperExp</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ownership--borrowing"><a class="header" href="#ownership--borrowing">Ownership &amp; Borrowing</a></h1>
+<ul>
+<li>Each value in Rust has an <em>owner</em>.</li>
+<li>There can only be one owner at a time.</li>
+<li>When the owner goes out of scope, the value will be dropped. ( call <code>drop</code>)</li>
+<li>At any given time, you can have either one mutable reference or any number of immutable references. (one writer or multiple readers)</li>
+<li>References must always be valid. </li>
+</ul>
+<p>Rust won't allow double free or dangling pointer in safe mode.</p>
+<pre><pre class="playground"><code class="language-rust  editable edition2021">fn borrow(b: &amp;String) {
+    println!(&quot;borrow -&gt; {b}&quot;);
+}
+
+fn mut_borrow(mb: &amp;mut String) {
+    *mb = &quot;updated&quot;.to_string();
+}
+
+fn move_msg(m: String) {
+    println!(&quot;{m}&quot;);
+}
+
+fn main() {
+    let mut msg = String::from(&quot;hello&quot;);
+    borrow(&amp;msg);
+    println!(&quot;{msg}&quot;);
+    mut_borrow(&amp;mut msg);
+    println!(&quot;{msg}&quot;);
+    borrow(&amp;msg);
+    println!(&quot;{msg}&quot;);
+    move_msg(msg);
+
+    // error here because msg was moved in above line
+    println!(&quot;{msg}&quot;); 
+}
+</code></pre></pre>
+<h4 id="keywords"><a class="header" href="#keywords">keywords</a></h4>
+<ul>
+<li>borrow, move</li>
+<li>copy, drop</li>
+<li>dangling pointer</li>
+<li>double free</li>
+</ul>
+<h3 id="summary-from-a-reddit-user"><a class="header" href="#summary-from-a-reddit-user">SUMMARY (from a reddit user)</a></h3>
+<p>The borrowing and ownership mechanism can be simplified down to:</p>
+<ul>
+<li>Passing a variable by value will move ownership, dropping the original variable from memory</li>
+<li>Passing a variable by mutable reference will keep the original variable, but allow you to modify the variable.</li>
+<li>You may only borrow a variable mutably once at a time, and you may not immutably borrow while mutably borrowing.</li>
+<li>You may have as many immutable borrows as you want, so long as you aren't modifying that value.</li>
+<li>You may mutably borrow a field in a struct, and then mutably borrow a different field in the same struct simultaneously, so long as you aren't also mutably borrowing the overall struct.</li>
+<li>You can use <code>Cell</code> and <code>RefCell</code> to allow for mutably modifying an immutable field in a struct.</li>
+<li>You may mutably borrow multiple slices from the same array simultaneously so long as there is no overlap.</li>
+<li>Safe memory practices means that instead of mutably borrowing the same variable in multiple places, you queue the changes to make in a separate location and apply them serially one after another.</li>
+</ul>
+<h2 id="from-chatgpt"><a class="header" href="#from-chatgpt">From chatgpt</a></h2>
+<h4 id="ownership"><a class="header" href="#ownership">Ownership</a></h4>
+<ul>
+<li>Every value in Rust has a single owner.</li>
+<li>When the owner goes out of scope, the value is automatically dropped (freed from memory).</li>
+<li>You can borrow a value from its owner, allowing you to use the value without taking ownership of it.</li>
+<li>When a value is borrowed, the original owner cannot modify the value until the borrow goes out of scope.</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust  editable edition2021">fn main() {
+    let x = 5;  // x is a new i32 value with the value 5
+    let y = x;  // y is a new i32 value with the value 5
+    // x is no longer needed, so it is dropped
+    println!(&quot;{}&quot;, y);  // prints 5
+}
+</code></pre></pre>
+<h4 id="borrowing"><a class="header" href="#borrowing">Borrowing</a></h4>
+<p>There are two types of borrowing in Rust: immutable borrowing and mutable borrowing.</p>
+<p>Immutable borrowing is done using the &amp; operator. It allows you to use a value without changing it, but it does not allow you to modify the value.</p>
+<pre><pre class="playground"><code class="language-rust  editable edition2021">fn main() {
+    let x = 5;
+    let y = &amp;x;  // y is an immutable borrow of x
+    println!(&quot;{}&quot;, y);  // prints 5
+    *y = 6;  // error: cannot assign to immutable borrowed value
+}
+</code></pre></pre>
+<p>Mutable borrowing is done using the &amp;mut operator. It allows you to use and modify a value, but it requires that you have exclusive access to the value for the duration of the borrow.</p>
+<pre><pre class="playground"><code class="language-rust  editable edition2021">fn main() {
+    let mut x = 5;
+    let y = &amp;mut x;  // y is a mutable borrow of x
+    *y = 6;  // ok: we can modify x through y
+    println!(&quot;{}&quot;, y);  // prints 6
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="stack--heap"><a class="header" href="#stack--heap">Stack &amp; Heap</a></h1>
+<h4 id="stack"><a class="header" href="#stack">Stack</a></h4>
+<p>The stack is a region of memory that is used to store local variables and function call frames in a program. It is organized in a Last-In, First-Out (LIFO) order, which means that the last value pushed onto the stack is the first one that is popped off.</p>
+<p>In Rust, the stack is used to store local variables and function call frames. Local variables are created and destroyed automatically as the program runs, and they are stored in a LIFO order. Function call frames are created when a function is called, and they are destroyed when the function returns.</p>
+<p>The stack has a number of useful properties:</p>
+<ul>
+<li>It is fast to allocate and deallocate memory, because it does not require any dynamic memory allocation.</li>
+<li>It has a fixed size, which means that it is not possible to allocate more memory on the stack than it has available.</li>
+<li>It is easy to reason about, because values on the stack have a well-defined lifetime.</li>
+</ul>
+<p>However, the stack also has some limitations:</p>
+<ul>
+<li>It has a fixed size, which means that it is not possible to allocate arbitrarily large amounts of memory on the stack.</li>
+<li>Values on the stack cannot outlive the function they were created in, because they are automatically destroyed when the function returns.</li>
+</ul>
+<h4 id="heap"><a class="header" href="#heap">Heap</a></h4>
+<p>The heap is a region of memory that is used to store dynamic data structures, such as vectors, strings, and boxes. It is a general-purpose memory pool that can be used to allocate and deallocate memory at runtime.</p>
+<p>In Rust, the heap is used to store values that have a longer lifetime than the function they were created in. These values are allocated using dynamic memory allocation, which involves requesting memory from the operating system at runtime.</p>
+<p>The heap has a number of useful properties:</p>
+<ul>
+<li>It allows values to have a longer lifetime than the function they were created in.</li>
+<li>It allows values to be shared between multiple threads.</li>
+<li>It allows the size of a value to be determined at runtime, rather than at compile time.</li>
+</ul>
+<p>However, the heap also has some limitations:</p>
+<ul>
+<li>It is slower to allocate and deallocate memory than the stack, because it requires dynamic memory allocation.</li>
+<li>It is more difficult to reason about, because the lifetime of a value on the heap is not always clear.</li>
+</ul>
+<h4 id="rust-stack-vs-thread-local-stack"><a class="header" href="#rust-stack-vs-thread-local-stack">Rust stack vs Thread-local stack</a></h4>
+<p>The thread-local stack, on the other hand, is a stack that is specific to a particular thread of execution. Each thread in a program has its own stack, which is used to store local variables and function call frames for that thread.</p>
+<p>In Rust, the stack is used to store local variables and function call frames for all threads in a program. Each thread has its own stack, which is used to store local variables and function call frames for that thread.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="box"><a class="header" href="#box">Box</a></h1>
+<ul>
+<li>When you have a type whose size can’t be known at compile time and you want to use a value of that type in a context that requires an exact size (recursive type)</li>
+<li>When you have a large amount of data and you want to transfer ownership but ensure the data won’t be copied when you do so</li>
+<li>When you want to own a value and you care only that it’s a type that implements a particular trait rather than being of a specific type (trait object)</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">// when b goes out of scope, the deallocation happens both for the box(sotred on the stack)
+// and the data it points to (stored on the heap)
+fn main() {
+    let b = Box::new(5);
+    println!(&quot;{b}&quot;);
+}
+</code></pre></pre>
+<h4 id="box-usage-in-recursive-type"><a class="header" href="#box-usage-in-recursive-type">Box usage in recursive type</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">#[derive(Debug)]
+enum List&lt;T&gt; {
+    Nil,
+    Cons(T, Box&lt;List&lt;T&gt;&gt;)
+}
+
+fn main() {
+    use crate::List::{Nil, Cons};
+    let l = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
+    dbg!(l); 
+}
+</code></pre></pre>
+<blockquote>
+<p>The Box<T> type is a smart pointer because it implements the <a href="https://doc.rust-lang.org/std/ops/trait.Deref.html">Deref</a> trait, which allows Box<T> values to be treated like references. When a Box<T> value goes out of scope, the heap data that the box is pointing to is cleaned up as well because of the <a href="https://doc.rust-lang.org/std/mem/fn.drop.html">Drop</a> trait implementation. </p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rc-and-arc"><a class="header" href="#rc-and-arc">Rc And Arc</a></h1>
+<p>In Rust, <strong>Rc (short for &quot;reference counted&quot;)</strong> and <strong>Arc (short for &quot;atomic reference counted&quot;)</strong> are types that allow you to share values between multiple owners. They are similar to Box, which represents ownership of a value on the heap, but they allow multiple owners.</p>
+<p>Rc is a non-thread-safe reference counted type, which means that it is not safe to share an Rc value between threads. It is useful for sharing values within a single-threaded context, such as when building a tree data structure. A value owned by an Rc pointer is immutable.</p>
+<p>Arc is a thread-safe reference counted type, which means that it is safe to share an Arc value between threads. It is useful for sharing values between threads, because it allows multiple threads to access the value concurrently.</p>
+<h3 id="rc-in-memory"><a class="header" href="#rc-in-memory">Rc in memory</a></h3>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::rc:Rc;
+let s : Rc&lt;String&gt; = Rc:new(&quot;shirataki&quot;.to_string());
+let t : Rc&lt;String&gt; = s.clone();
+let u : Rc&lt;String&gt; = s.clone();
+<span class="boring">}
+</span></code></pre></pre>
+<p><img src="ownership/../assets/rc.png" alt="image" /></p>
+<h3 id="well-known-problem-with-using-reference-counts"><a class="header" href="#well-known-problem-with-using-reference-counts">Well-known problem with using reference counts</a></h3>
+<p>One well-known problem iwht using reference counts to manage memory is that, if there are ever two reference-counted values that point to each other, each will hold the other's reference count above zero, so the values will never be freed.</p>
+<p><img src="ownership/../assets/eachother.png" alt="image" /></p>
+<h4 id="example"><a class="header" href="#example">Example</a></h4>
+<p><img src="ownership/../assets/rc_list.svg" alt="Image" /></p>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::rc::Rc;
+
+#[derive(Debug)]
+enum List&lt;T&gt; {
+    Nil,
+    Cons(T, Rc&lt;List&lt;T&gt;&gt;)
+}
+
+fn main() {
+    use crate::List::{Cons, Nil};
+    let a = Rc::new(Cons(5, Rc::new(Cons(10, Rc::new(Nil)))));
+    let b = Rc::new(Cons(3, Rc::clone(&amp;a)));
+    let c = Rc::new(Cons(4, Rc::clone(&amp;a)));
+    println!(&quot;{b:?}&quot;);
+    println!(&quot;{c:?}&quot;);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="interior-mutability"><a class="header" href="#interior-mutability">Interior Mutability</a></h1>
+<ul>
+<li>Mutating the value inside immutable value is called interior mutability</li>
+<li>With <a href="https://doc.rust-lang.org/std/cell/struct.RefCell.html"><code>RefCell&lt;T&gt;</code></a>, the following borrowing rules are enfored at <strong>runtime</strong>. If the rules are broken, the program will panic and exit
+<ul>
+<li>At any given time, you can have either (but not both) one mutable reference or any number of immutable references.</li>
+<li>References must always be valid.</li>
+</ul>
+</li>
+<li><code>Cell&lt;T&gt;</code> and <code>RefCell&lt;T&gt;</code> are not thread safe. Use <code>Mutex&lt;T&gt;</code>, <code>RwLock&lt;T&gt;</code> or <code>atomic</code> types for multi threading.</li>
+</ul>
+<h4 id="example-cellt"><a class="header" href="#example-cellt">Example <a href="https://doc.rust-lang.org/std/cell/struct.Cell.html"><code>Cell&lt;T&gt;</code></a></a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::cell::Cell;
+
+struct Counter {
+    value : Cell&lt;i32&gt;
+}
+
+fn main() {
+    let c = Counter { value : Cell::new(0) };
+    println!(&quot;{:?}&quot;, c.value);
+    c.value.set(1);
+    println!(&quot;{:?}&quot;, c.value);
+}
+</code></pre></pre>
+<h4 id="basic-example-refcellt"><a class="header" href="#basic-example-refcellt">Basic Example <a href="https://doc.rust-lang.org/std/cell/struct.RefCell.html"><code>RefCell&lt;T&gt;</code></a></a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::cell::RefCell;
+
+struct Foo {
+   value : RefCell&lt;i32&gt;,
+}
+
+fn main() {
+    let foo = Foo {
+        value : RefCell::new(5)
+    };
+    println!(&quot;{:?}&quot;, foo.value);
+
+    *foo.value.borrow_mut() = 10;
+    println!(&quot;{:?}&quot;, foo.value);
+}
+</code></pre></pre>
+<h4 id="refcellt-dynamically-enforces-the-borrow-checking-rules-and-panic-if-violates"><a class="header" href="#refcellt-dynamically-enforces-the-borrow-checking-rules-and-panic-if-violates"><code>RefCell&lt;T&gt;</code> dynamically enforces the borrow checking rules and panic if violates.</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    use std::cell::RefCell;
+    let a = RefCell::new(String::from(&quot;hello&quot;));
+    let alias = a.borrow();
+    println!(&quot;{alias}&quot;);
+
+    let mut m = a.borrow_mut(); // panic here cause already borrowed mutably
+    m.push_str(&quot; world&quot;);
+}
+</code></pre></pre>
+<h4 id="with-rct-that-holds-refcellt-a-value-can-have-mutiple-owners-and-can-be-mutated"><a class="header" href="#with-rct-that-holds-refcellt-a-value-can-have-mutiple-owners-and-can-be-mutated">With <code>Rc&lt;T&gt;</code> that holds <code>RefCell&lt;T&gt;</code>, a value can have mutiple owners and can be mutated.</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::rc::Rc;
+use std::cell::RefCell;
+use crate::List::{ Nil, Cons };
+
+#[derive(Debug)]
+enum List&lt;T&gt; {
+    Nil,
+    Cons(Rc&lt;RefCell&lt;T&gt;&gt;, Rc&lt;List&lt;T&gt;&gt;),
+}
+
+fn main() {
+    let value = Rc::new(RefCell::new(5));
+
+    let a = Rc::new(Cons(Rc::clone(&amp;value), Rc::new(Nil)));
+    let b = Cons(Rc::new(RefCell::new(3)), Rc::clone(&amp;a));
+    let c = Cons(Rc::new(RefCell::new(4)), Rc::clone(&amp;a));
+
+    *value.borrow_mut() = 10;
+
+    println!(&quot;{a:?}&quot;);
+    println!(&quot;{b:?}&quot;);
+    println!(&quot;{c:?}&quot;);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="weak-reference"><a class="header" href="#weak-reference">Weak Reference</a></h1>
+<p>Weak references (also known as weak pointers) are references that do not increase the reference count of an object. They allow objects to have circular references without causing memory leaks.</p>
+<p>Weak references are created using the std::rc::Weak type, which is a wrapper around a non-owning reference to an object that is managed by Rc. Unlike Rc, which increments the reference count of an object when it is created, Weak does not increase the reference count and can therefore be used to break reference cycles.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::{rc::{Rc, Weak}, cell::RefCell, borrow::Borrow};
+
+#[derive(Debug)]
+struct Node {
+    value : i32,
+    parent: RefCell&lt;Weak&lt;Node&gt;&gt;,
+    children: RefCell&lt;Vec&lt;Rc&lt;Node&gt;&gt;&gt;,
+}
+
+fn main() {
+    let a = Rc::new(Node {
+        value: 5,
+        parent: RefCell::new(Weak::new()),
+        children: RefCell::new(vec![])
+    });
+
+    let b = Rc::new(Node{
+        value: 10,
+        parent: RefCell::new(Rc::downgrade(&amp;a)),
+        children: RefCell::new(vec![])
+    });
+
+    a.children.borrow_mut().push(Rc::clone(&amp;b));
+    dbg!(a);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="notes"><a class="header" href="#notes">Notes</a></h1>
+<blockquote>
+<p>Rust programs don't usually explicitly drop values at all, in the way C and C++ programs would use free and delete. The way to drop a value in Rust is to remove it from the ownership tree somehow: by leaving the scope of a variable, or deleting an element from a vector, or something of that sort. At that point, Rust ensures the value is properly dropped, along with everything it owns.</p>
+</blockquote>
+<blockquote>
+<p>Weak references, which are references that do not increase the reference count of an object, allow objects to have circular references without causing memory leaks.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="illustrations"><a class="header" href="#illustrations">Illustrations</a></h1>
+<p>The following illustrations are from <a href="https://www.oreilly.com/library/view/programming-rust-2nd/9781492052586/">Programming Rust</a> and <a href="https://rust-book.cs.brown.edu">The Rust Book</a>.</p>
+<h4 id="a-vector"><a class="header" href="#a-vector">A vector</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let padovan = vec![1, 1, 1, 2, 2, 3, 4, 5, 7, 9];
+<span class="boring">}
+</span></code></pre></pre>
+<p><img src="ownership/../assets/padovan.png" alt="image" /></p>
+<h4 id="a-box-and-a-string"><a class="header" href="#a-box-and-a-string">A box and a string</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let point = Box::new((0.625, 0.5));
+let label = format!(&quot;{:?}&quot;, point);
+<span class="boring">}
+</span></code></pre></pre>
+<p><img src="ownership/../assets/point.png" alt="image" /></p>
+<h4 id="a-vector-containing-instances-of-a-struct"><a class="header" href="#a-vector-containing-instances-of-a-struct">A vector containing instances of a struct</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Person { name : String, birth : i32 }
+let mut composers = Vec::new();
+composers.push(Person { name : &quot;Palenstrina&quot;.to_string(), birth: 1525 });
+composers.push(Person { name : &quot;Dowland&quot;.to_string(), birth: 1563 });
+composers.push(Person { name : &quot;Lully&quot;.to_string(), birth: 1632 });
+<span class="boring">}
+</span></code></pre></pre>
+<p><img src="ownership/../assets/composers.png" alt="image" /></p>
+<h4 id="a-string-and-a-ref-to-it"><a class="header" href="#a-string-and-a-ref-to-it">A string and a ref to it</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s1 = String::new(&quot;hello&quot;);
+let s = &amp;s1;
+<span class="boring">}
+</span></code></pre></pre>
+<p><code>s</code> stores the address of <code>s1</code>.
+<img src="ownership/../assets/string_ref.svg" alt="image" /></p>
+<h4 id="a-vec-containing-strings"><a class="header" href="#a-vec-containing-strings">A vec containing strings</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = vec![&quot;udon&quot;.to_string(), &quot;ramen&quot;.to_string(), &quot;soba&quot;.to_string()];
+let t = s;
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong><code>s</code> in memory</strong>
+<img src="ownership/../assets/vec_of_string.png" alt="image" /></p>
+<p><strong>The result of assigning <code>s</code> to <code>t</code></strong>
+<img src="ownership/../assets/move_vec_of_string.png" alt="image" /></p>
+<h4 id="assigning-a-string-moves-the-value-whereas-assigning-an-i32-copies-it"><a class="header" href="#assigning-a-string-moves-the-value-whereas-assigning-an-i32-copies-it">Assigning a String moves the value, whereas assigning an i32 copies it</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let string1 = &quot;somnambulance&quot;.to_string();
+let string2 = string1;
+let num1 : i32 = 36;
+let num2 = num1;
+<span class="boring">}
+</span></code></pre></pre>
+<p><img src="ownership/../assets/somabulance.png" alt="image" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference--lifetime"><a class="header" href="#reference--lifetime">Reference &amp; lifetime</a></h1>
+<p>Rust has two type of pointers mainly:</p>
+<ul>
+<li>Owning pointers e.g. <code>Box&lt;T&gt;</code> - When the owner is dropped, the referent goes with it.</li>
+<li>Nonowning pointers a.k.a <em>references</em> - references must never outlive their referents.</li>
+</ul>
+<p>There are two kinds of Nonowning pointers or references:</p>
+<ul>
+<li>Shared reference: <code>&amp;</code></li>
+<li>Mutable reference: <code>&amp;mut</code></li>
+</ul>
+<p>Which obey the following rules:</p>
+<ul>
+<li>A reference cannot outlive its referent</li>
+<li>A mutable reference cannot be shared</li>
+</ul>
+<blockquote>
+<p>References have a lifetime associated with them, which specifies the scope of the reference. The lifetime of a reference must be a subset of the lifetime of the value it references. This ensures that a reference never points to a value that no longer exists.</p>
+</blockquote>
+<h4 id="shared-reference"><a class="header" href="#shared-reference">Shared Reference</a></h4>
+<ul>
+<li>Rust allows multiple shared references</li>
+<li>Rust doesn't allow shared referencees to mutate their referents</li>
+<li>Shared references must not outlive theire referents</li>
+<li>Shared references are <a href="https://doc.rust-lang.org/std/marker/trait.Copy.html"><code>Copy</code></a></li>
+<li><code>&amp;e</code> is a shared reference to e's value; if <code>e</code> has type <code>T</code>, then <code>&amp;e</code> has the type <code>&amp;T</code> pronounced <code>ref T</code></li>
+</ul>
+<h4 id="mutable-reference"><a class="header" href="#mutable-reference">Mutable Reference</a></h4>
+<ul>
+<li>With a mutable reference to a value, it can be read or modified</li>
+<li>Rust allow only one mutable reference to a value at a time</li>
+<li><code>&amp;mut e</code> is a mutable reference to e's value; if <code>e</code> has type <code>T</code>, then <code>&amp;mut e</code> has the type <code>&amp;mut T</code> pronounced <code>ref mute T</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference"><a class="header" href="#reference">Reference</a></h1>
+<p>References are created explicitly with the <code>&amp;</code> operator, and dereferenced explicitly with the <code>*</code> operator.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    let x = 10;
+    let rx = &amp;x;
+    assert!(*rx == 10);
+
+    let mut y = 11;
+    let ry = &amp;mut y;
+    *ry += 1; 
+    assert!(*ry == 12);
+<span class="boring">}
+</span></code></pre></pre>
+<p>The <code>.</code> operator implicitly dereferences its left operand if needed.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub struct Person {
+    name : &amp;'static str,
+    age : f32
+}
+
+let john_ref = &amp;john;
+
+assert!(john_ref.name == &quot;John&quot;); // implicitly dereference
+assert!((*john_ref).name == &quot;John&quot;); // same as above, but with explicit dereference
+assert!(john_ref.age == 40.3);
+assert!((*john_ref).age == 40.3);
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>The <code>.</code> operator can also implicitly borrow a reference to its left operand, if needed for a method call.</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut v = vec![10, 20, 3];
+v.sort(); // implicitly borrow a mutable reference to v
+(&amp;mut v).sort(); // same as above
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="assigning-references"><a class="header" href="#assigning-references">Assigning References</a></h4>
+<p>Assigning to a Rust reference makes it point at a new value:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 10;
+let y = 20;
+let mut r = &amp;x;
+println!(&quot;{r}&quot;);
+r = &amp;y;
+println!(&quot;{r}&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="references-to-references"><a class="header" href="#references-to-references">References to References</a></h4>
+<p>Rust permits references to references.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Point { x : f32, y : f32 }
+
+let p1 = Point { x : 1000, y : 729 };
+let r : &amp;Point = &amp;p1;
+let rr : &amp;&amp;Point = &amp;r;
+let rrr : &amp;&amp;&amp;Point = &amp;rr;
+
+assert_eq!(rrr.y, p1.y);
+assert_eq!((*(*(*rrr))).y, p1.y);
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>The . operator follows as many references as it takes to find its target as seen above <code>rrr.y</code></p>
+</blockquote>
+<h4 id="borrow-an-illustration-from-the-programming-rust-book"><a class="header" href="#borrow-an-illustration-from-the-programming-rust-book">Borrow an illustration from The Programming Rust Book</a></h4>
+<p><img src="reference_and_lifetime/../assets/refs_to_refs.jpg" alt="image" /></p>
+<h4 id="comparing-references"><a class="header" href="#comparing-references">Comparing References</a></h4>
+<blockquote>
+<p>Like the . operator, Rust's comparison operators &quot;see through&quot; any number of references, as long as both operands have the same type.</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let a = 10;
+let b = 20;
+let c = 10;
+
+let ra = &amp;a;
+let rb = &amp;b;
+let rc = &amp;c;
+
+let rra = &amp;ra;
+let rrb = &amp;rb;
+let rrc = &amp;rc;
+
+assert!(rra &lt; rrb);
+assert!(rra &lt;= rrb);
+assert!(rra == rrc);
+assert!(rrb &gt; rrc);
+assert!(rrb &gt;= rrc);
+
+// both operands should have same level of references
+assert!(rrb &gt;= &amp;&amp;10); 
+
+// Arithmetic operators can see through only one level of references
+assert!(rb == &amp;(ra + &amp;10));
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>Arithmetic operators can see through only one level of references</p>
+</blockquote>
+<h4 id="checking-references-pointing-to-same-memory-location"><a class="header" href="#checking-references-pointing-to-same-memory-location">Checking references pointing to same memory location</a></h4>
+<blockquote>
+<p><code>std::ptr::eq</code></p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = 1;
+
+let rx1 = &amp;x;
+let rx2 = &amp;x;
+
+println!(&quot;{}&quot;, std::ptr::eq(rx1, rx2));
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>References are never Null and there is no default initial value for a reference. If you need a value that is either a reference to something or not, use the type <code>Option&lt;&amp;T&gt;</code>.</p>
+</blockquote>
+<h4 id="borrowing-references-to-arbitrary-expressions"><a class="header" href="#borrowing-references-to-arbitrary-expressions">Borrowing references to arbitrary expressions</a></h4>
+<p>Rust allows you borrow a reference to the value of any sort of expression at all.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn get_str() -&gt; String {
+    &quot;hello&quot;.to_string()
+}
+
+fn main() {
+    // Rust here create an anonymous variable 
+    // and make sure it is variable as long as the variable s
+    let s = &amp;get_str(); 
+    println!(s);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fat--thin-pointer"><a class="header" href="#fat--thin-pointer">Fat &amp; Thin Pointer</a></h1>
+<h4 id="thin-pointer"><a class="header" href="#thin-pointer">Thin pointer</a></h4>
+<ul>
+<li>A thin pointer only contains the memory address it points to.</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let a = 10;
+let ra = &amp;a;
+println!(&quot;{:p}&quot;, &amp;a);
+println!(&quot;{:p}&quot;, ra);
+
+assert_eq!(format!(&quot;{:p}&quot;, &amp;a), format!(&quot;{:p}&quot;, ra));
+
+let rra = &amp;ra;
+println!(&quot;{:p}&quot;, &amp;ra);
+println!(&quot;{:p}&quot;, rra);
+assert_eq!(format!(&quot;{:p}&quot;, &amp;ra), format!(&quot;{:p}&quot;, rra));
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="fat-pointer"><a class="header" href="#fat-pointer">Fat pointer</a></h4>
+<ul>
+<li><a href="https://stackoverflow.com/questions/57754901/what-is-a-fat-pointer">stackoverflow answer</a></li>
+</ul>
+<p>A fat pointer contains both the address of a memory location it points to and additional metadata like the length of the allocation or  a pointer to vtable in <code>Trait Object</code>.</p>
+<h4 id="t-mut-t-str-are-fat-pointers"><a class="header" href="#t-mut-t-str-are-fat-pointers"><code>&amp;[T]</code>, <code>&amp;mut [T]</code>, <code>&amp;str</code> are fat pointers</a></h4>
+<p>A reference to a slice <code>[T]</code> or <code>str</code> is a fat pointer, carrying the starting address of the slice and its length. <code>[T]</code> and <code>str</code> are dynamically sized types and that's the reason we see them as <code>&amp;[T]</code>, <code>&amp;mut [T]</code> and <code>&amp;str</code>.</p>
+<p>The representation of <code>&amp;[T]</code>, <code>&amp;mut [T]</code>, <code>&amp;str</code> might look like below:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct SliceRef {
+    ptr : *const i32
+    len : usize
+}
+<span class="boring">}
+</span></code></pre></pre>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let arr : [i32; 5] = [1, 2, 3, 4, 5]; 
+let slice_arr : &amp;[i32] = &amp;arr[..3];
+println!(&quot;{slice_arr:?}&quot;);
+println!(&quot;{:p}&quot;, &amp;arr);
+println!(&quot;{:p}&quot;, slice_arr);
+assert_eq!(format!(&quot;{:p}&quot;, &amp;arr), format!(&quot;{:p}&quot;, slice_arr));
+
+println!(&quot;{}&quot;, std::mem::size_of::&lt;i32&gt;()); // 4 bytes
+println!(&quot;{}&quot;, std::mem::size_of::&lt;[i32; 5]&gt;()); // 4 * 5 = 20 bytes
+
+// size of the pointer pointing to value of type [i32; 5] 
+println!(&quot;{}&quot;, std::mem::size_of::&lt;&amp;[i32; 5]&gt;()); // 8 bytes
+
+// &amp;[i32] is a fat pointer
+println!(&quot;{}&quot;, std::mem::size_of::&lt;&amp;[i32]&gt;()); // 16 bytes
+
+// &amp;str is a fat pointer
+println!(&quot;{}&quot;, std::mem::size_of::&lt;&amp;str&gt;()); // 16 bytes
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="trait-object-is-a-fat-pointer"><a class="header" href="#trait-object-is-a-fat-pointer">Trait Object is a fat pointer</a></h4>
+<p>A reference to a trait type is called a trait object. A Trait Object consists of a pointer to the value, plus a pointer to a table representing that value's type.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut buf = Vec::new();
+let writer : &amp;mut dyn std::io::Write = &amp;mut buf;
+
+println!(&quot;{}&quot;, std::mem::size_of::&lt;Vec&lt;i32&gt;&gt;()); // 24 bytes - buffer, capacity, length
+println!(&quot;{}&quot;, std::mem::size_of::&lt;Vec&lt;String&gt;&gt;()); // 24 bytes bytes - buffer, capacity, length
+
+println!(&quot;{}&quot;, std::mem::size_of::&lt;&amp;dyn std::io::Write&gt;()); // 16 bytes
+<span class="boring">}
+</span></code></pre></pre>
+<p><img src="reference_and_lifetime/../assets/trait-object-layout.jpg" alt="image" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="lifetime"><a class="header" href="#lifetime">Lifetime</a></h1>
+<p>A lifetime is a construct in Rust that represents the scope of a reference. The purpose of lifetimes is to ensure that references are always valid or to ensure a reference doesn't outlive its referent.</p>
+<blockquote>
+<p>Lifetimes are entirely figments of Rust's compile-time imagination. At runtime, a reference is nothing but an address; its lifetime is part of its type and has no runtime representation. -- The Programming Rust book</p>
+</blockquote>
+<blockquote>
+<p>The main aim of lifetimes is to prevent <strong>dangling references</strong>. -- The Book</p>
+</blockquote>
+<h2 id="lifetime-annotation-a-pronounce-tick-a"><a class="header" href="#lifetime-annotation-a-pronounce-tick-a">Lifetime annotation ('a pronounce <strong>tick a</strong>)</a></h2>
+<p><code>&amp;i32</code>        // a reference without lifetime annotation<br/>
+<code>&amp;'a i32</code>     // a reference with explicit lifetime annotation<br/>
+<code>&amp;'a mut i32</code> // a mutable reference with explicit lifetime annotation</p>
+<h2 id="lifetime-elision-rules"><a class="header" href="#lifetime-elision-rules">Lifetime elision rules</a></h2>
+<p>Lifetime elision rules are a set of rules in Rust that allow the compiler to infer lifetimes in certain cases, without the need for explicit annotations.</p>
+<ul>
+<li>First Rule: Rust assigns a different lifetime paramater to each lifetime in each input type.
+<ul>
+<li><code>fn foo(x : &amp;i32)</code> becomes <code>fn foo&lt;'a&gt;(x : &amp;'a i32)</code></li>
+<li><code>fn foo(x : &amp;i32, y : &amp;i32)</code> becomes <code>fn foo&lt;'a, 'b&gt;(x : &amp;'a i32, y : &amp;'b i32)</code></li>
+<li><code>fn foo(x : &amp;ImportantExcerpt)</code> becomes <code>fn foo&lt;'a&gt;(x : &amp;'a ImportantExcerpt)</code></li>
+</ul>
+</li>
+<li>Second Rule: If there is exactly one input lifetime parameter, that lifetime is assigned to all output lifetime parameters: <code>fn foo&lt;'a&gt;(x: &amp;'a i32) -&gt; &amp;'a i32</code></li>
+<li>Third Rule: If there are multiple input lifetime parameters, but one of them is <code>&amp;self</code> or <code>&amp;mut self</code> because this is a method, the lifetime of self is assigned to all output lifetime parameters.</li>
+</ul>
+<h2 id="lifetimes-on-functions"><a class="header" href="#lifetimes-on-functions">Lifetimes on functions</a></h2>
+<h4 id="dangling-reference-example"><a class="header" href="#dangling-reference-example">Dangling reference example</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">// 'b is smaller than 'a and Rust rejects the program
+fn main() {
+    let r;                // ---------+-- 'a
+                          //          |
+    {                     //          |
+        let x = 5;        // -+-- 'b  |
+        r = &amp;x;           //  |       |
+    }                     // -+       |
+                          //          |
+    println!(&quot;r: {}&quot;, r); //          |
+}                         // ---------+
+</code></pre></pre>
+<p>The following functions return dangling references and won't compile.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn longest(fst : &amp;str, snd: &amp;str) -&gt; &amp;str {
+    let string = &quot;hello&quot;;
+    return string.as_str();
+}
+
+// the returning lifetime is not related to the lifetime of paramaters
+fn longest_2&lt;'a&gt;(fst : &amp;str, snd: &amp;str) -&gt; &amp;'a str {
+    let string = &quot;hello&quot;;
+    return string.as_str();
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="passing-references-and-returning-a-reference-from-function"><a class="header" href="#passing-references-and-returning-a-reference-from-function">Passing references and returning a reference from function</a></h4>
+<p>Lifetime annotations need to be explicitly provided if Rust cannot infer lifetimes for input or output paramaters.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn max&lt;'a&gt;(a : &amp;'a i32, b : &amp;'a i32) -&gt; &amp;'a i32 {
+    if *a &gt; *b {
+        a
+    } else {
+        b
+    }
+}
+
+// this is OK 
+fn max&lt;'a&gt;(a : &amp;'a i32, b : &amp;i32) -&gt; &amp;'a i32 {
+    a
+}
+
+// dangling pointer case here. won't compile
+fn max_inner(a : &amp;i32) -&gt; &amp;i32 {
+    let b = 5;
+    max(&amp;a, &amp;b)
+}
+
+fn main() {
+    let x = 10;
+    let y = 20;
+    let result = max(&amp;x, &amp;y);
+    println!(&quot;{result}&quot;);
+   
+    // occurs dangling pointer and won't compile
+    let result = max_inner(&amp;x);
+    println!(&quot;{result}&quot;);
+}
+
+</code></pre></pre>
+<h4 id="lifetime-with-mutable-references-example"><a class="header" href="#lifetime-with-mutable-references-example">Lifetime with mutable references Example</a></h4>
+<p>2 lifetime annotations - one for mutable referenced container and one for the shared value - must be explicitly provided in the following example.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn insert_str&lt;'c, 'v&gt;(source: &amp;'c mut String, s : &amp;'v str) {
+    source.push_str(s);
+}
+
+fn insert_num&lt;'c, 'v&gt;(nums : &amp;'c mut Vec&lt;&amp;'v i32&gt;, num : &amp;'v i32) {
+    nums.push(num);
+}
+
+fn main() {
+    let mut source = String::new();
+    insert_str(&amp;mut source, &quot;hello&quot;);
+    insert_str(&amp;mut source, &quot; world&quot;);
+    println!(&quot;{:?}&quot;, source);
+
+    let mut nums = Vec::new();
+    insert_num(&amp;mut nums, &amp;10);
+    insert_num(&amp;mut nums, &amp;11);
+    println!(&quot;{:?}&quot;, nums);
+}
+</code></pre></pre>
+<h2 id="lifetimes-on-types"><a class="header" href="#lifetimes-on-types">Lifetimes on Types</a></h2>
+<p>Whenever a reference type appears inside another type's definition, you must write out its lifetime.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">#[derive(Debug)]
+struct FirstLast&lt;'a&gt; {
+    first: &amp;'a i32,
+    second: &amp;'a i32,
+}
+
+// no need to explicitly annotate lifetimes here 
+// due to the first and second rule of lifetime elision rules
+fn get_first_last(source: &amp;[i32]) -&gt; FirstLast {
+    FirstLast {
+        first : &amp;source[0],
+        second: &amp;source[source.len() - 1],
+    }
+}
+
+fn main() {
+   let nums = vec![3,4,5,2,3,4,1,-2];
+   let fl = get_first_last(&amp;nums); 
+   println!(&quot;{fl:?}&quot;);
+}
+</code></pre></pre>
+<p>Lifetime annotation on Enums.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum MaybeString&lt;'a&gt; {
+    Maybe(&amp;'a str),
+    Nothing
+} 
+<span class="boring">}
+</span></code></pre></pre>
+<h2 id="lifetimes-on-method-definition"><a class="header" href="#lifetimes-on-method-definition">Lifetimes on Method definition</a></h2>
+<pre><pre class="playground"><code class="language-rust edition2021">#[derive(Debug)]
+struct Excerpt&lt;'a&gt; {
+    part : &amp;'a str
+}
+
+impl&lt;'a&gt; Excerpt&lt;'a&gt; {
+    fn new(part : &amp;'a str) -&gt; Self {
+       Excerpt { part } 
+    }
+
+    fn display_and_return_part(&amp;self) -&gt; &amp;str {
+        println!(&quot;{self:?}&quot;);
+        self.part
+    }
+}
+
+fn main() {
+    let s = &quot;hello world&quot;;
+    let expt = Excerpt::new(s.split(' ').next().unwrap());
+    expt.display_and_return_part();
+}
+</code></pre></pre>
+<h2 id="the-static-lifetime-static"><a class="header" href="#the-static-lifetime-static">The Static Lifetime (<code>'static</code>)</a></h2>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s : &amp;'static str = &quot;I'm static string&quot;
+<span class="boring">}
+</span></code></pre></pre>
+<p><code>I'm static string</code> is stored directly in the program's binary which is located in static memory region.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="struct"><a class="header" href="#struct"><a href="https://doc.rust-lang.org/std/keyword.struct.html#:%7E:text=Unit%20structs%20are%20most%20commonly,store%20any%20data%20inside%20it.">struct</a></a></h1>
+<p><strong>3 types of struct</strong></p>
+<ul>
+<li><strong>regular (C-like) struct</strong></li>
+</ul>
+<pre><pre class="playground"><code class="language-rust  editable edition2021"><span class="boring">#[derive(Debug)]
+</span>struct Person {
+    name : String,
+    age : f32
+}
+
+fn main() {
+    let ryan = Person { name : &quot;Ryan&quot;.to_string(), age : 6.3 };
+    println!(&quot;{:?}&quot;, ryan);
+
+    /* field punning */
+    let name = &quot;Ryan&quot;.to_string();
+    let age = 6.3;
+    let ryan = Person { name, age }; // &lt;-
+    println!(&quot;{:?}&quot;, ryan);
+
+    /* with pattern match */
+    let Person { name, age } = ryan;
+    println!(&quot;{name}, {age}&quot;);
+
+    /* spreading, assign fields */
+    let Person { name : n, age : a } = 
+        Person { name : &quot;Ryan Clone&quot;.to_string(), .. ryan } ;
+    println!(&quot;{n}, {a}&quot;);
+}
+</code></pre></pre>
+<ul>
+<li><strong>tuple struct</strong></li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Person(String, f32);
+<span class="boring">}
+</span></code></pre></pre>
+<ul>
+<li><strong>unit struct</strong></li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>struct Any;
+struct Never;
+struct Unit;
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong>A struct with some methods</strong></p>
+<pre><pre class="playground"><code class="language-rust  editable edition2021"><span class="boring">extern crate chrono;
+</span>use chrono::format::ParseResult;
+use chrono::prelude::*;
+use std::fmt;
+
+struct Lang {
+    name: String,
+    type_system: String,
+    created_at: ParseResult&lt;NaiveDate&gt;,
+}
+
+impl Lang {
+    fn new(name: &amp;str, type_system: &amp;str, created_at: &amp;str) -&gt; Lang {
+        Lang {
+            name: name.to_string(),
+            type_system: type_system.to_lowercase(),
+            created_at: NaiveDate::parse_from_str(created_at, &quot;%d/%m/%Y&quot;),
+        }
+    }
+}
+
+impl fmt::Display for Lang {
+    fn fmt(&amp;self, f: &amp;mut fmt::Formatter) -&gt; fmt::Result {
+        let d = if let Ok(d) = self.created_at {
+            d.format(&quot;%d/%m/%Y&quot;).to_string()
+        } else {
+            &quot;&quot;.to_string()
+        };
+
+        write!(
+            f,
+            &quot;name : {}, type_system : {}, created_at : {}&quot;,
+            self.name, self.type_system, d
+        )
+    }
+}
+
+fn main() {
+    let rust = Lang::new(&quot;Rust&quot;, &quot;Strong, Static&quot;, &quot;1/1/2010&quot;);
+    println!(&quot;{rust}&quot;);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tuple-struct"><a class="header" href="#tuple-struct">Tuple struct</a></h1>
+<p>Fields of a tuple struct can be accessed using implicit field names (0,1,...)</p>
+<pre><pre class="playground"><code class="language-rust  editable edition2021">struct RGB(i32, i32, i32);
+
+fn main() {
+    let c = RGB(1, 255, 255);
+    println!(&quot;R={}, G={}, B={}&quot;, c.0, c.1, c.2);
+
+    /* patern match */
+    let RGB(r, g, b) = c;
+    println!(&quot;{r}, {g}, {b}&quot;);
+
+    if let RGB (_, g,_ ) = c {
+        println!(&quot;G is {g}.&quot;);
+    }
+}
+</code></pre></pre>
+<p>Tuple struct can be used for <a href="https://doc.rust-lang.org/book/ch19-03-advanced-traits.html#using-the-newtype-pattern-to-implement-external-traits-on-external-types">Newtype</a> pattern.</p>
+<pre><pre class="playground"><code class="language-rust  editable edition2021">use std::fmt::{Display, Formatter, Result};
+use std::ops::Add;
+
+struct Pound(f32);
+struct Kilogram(f32);
+
+impl Add&lt;Pound&gt; for Kilogram {
+    type Output = Kilogram;
+
+    fn add(self, rhs: Pound) -&gt; Self::Output {
+        Kilogram(self.0 + (rhs.0 / 2.2))
+    }
+}
+
+impl Display for Kilogram {
+    fn fmt(&amp;self, f: &amp;mut Formatter) -&gt; Result {
+        write!(f, &quot;{} Kg&quot;, self.0)
+    }
+}
+
+fn main() {
+    let weight = Pound(198.);
+    let zero =Kilogram(0.);
+    println!(&quot;weight: {}&quot;, zero + weight);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="unit-struct"><a class="header" href="#unit-struct">Unit struct</a></h1>
+<p>Unit structs are most commonly used as marker. They have a size of zero bytes, but unlike empty enums they can be instantiated, making them isomorphic to the unit type (). Unit structs are useful when you need to implement a trait on something, but don’t need to store any data inside it.
+<br/> -- From <a href="https://doc.rust-lang.org/std/keyword.struct.html#:%7E:text=Unit%20structs%20are%20most%20commonly,store%20any%20data%20inside%20it">here</a></p>
+<pre><code class="language-rust  ignore">struct Marker {} // use empty braces
+struct Phontom;  // or just semicolon
+
+// use same notation when creating an instance
+let m = Marker {} ; 
+let m = Marker; // throws error
+let p = Phontom;
+</code></pre>
+<p>Realworld Usage of unit struct from <a href="structs/shorturl.at/BJOQV">StackOverflow</a></p>
+<pre><code>Global
+</code></pre>
+<p>The global memory allocator, <a href="https://doc.rust-lang.org/std/alloc/struct.Global.html">Global</a>, is a unit struct:</p>
+<pre><code class="language-rust  ignore">pub struct Global;
+</code></pre>
+<p>It has no state of its own (because the state is global), but it implements traits like <a href="https://doc.rust-lang.org/std/alloc/trait.Allocator.html">Allocator</a>.</p>
+<pre><code>std::fmt::Error
+</code></pre>
+<p>The error for string formatting, <a href="https://doc.rust-lang.org/std/fmt/struct.Error.html">std::fmt::Error</a>, is a unit struct:</p>
+<pre><code class="language-rust  ignore">pub struct Error;
+</code></pre>
+<p>It has no state of its own, but it implements traits like <a href="https://doc.rust-lang.org/std/error/trait.Error.html">Error</a>.</p>
+<pre><code>RangeFull
+</code></pre>
+<p>The type for the .. operator, <a href="https://doc.rust-lang.org/std/ops/struct.RangeFull.html">RangeFull</a>, is a unit struct:</p>
+<pre><code class="language-rust  ignore">pub struct RangeFull;
+</code></pre>
+<p>It has no state of its own, but it implements traits like <a href="https://doc.rust-lang.org/std/ops/trait.RangeBounds.html">RangeBounds</a>.</p>
+<p><strong>Crates</strong></p>
+<pre><code>chrono::Utc
+</code></pre>
+<p>The <a href="https://docs.rs/chrono/0.4.19/chrono/offset/struct.Utc.html">Utc</a> timezone is a unit struct:</p>
+<pre><code>pub struct Utc;
+</code></pre>
+<p>It has no state of its own, but it implements traits like <a href="https://docs.rs/chrono/0.4.19/chrono/offset/struct.Utc.html#impl-TimeZone">TimeZone</a> and is thus usable as a generic argument to <code>Date</code> and <code>DateTime</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="generics"><a class="header" href="#generics">Generics</a></h1>
+<pre><code class="language-rust  no_run  noplayground">#[derive(Debug)]
+struct Point&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+#[derive(Debug)]
+struct Point2D&lt;A, B&gt; {
+    x: A,
+    y: B,
+}
+</code></pre>
+<h3 id="generics-in-method-definition"><a class="header" href="#generics-in-method-definition">Generics in method definition</a></h3>
+<blockquote>
+<p><code>T</code> declared just after <code>impl</code> will let Rust compiler identifies that the type paramater in the angle brackets in <code>Point</code> is a generic type rather than a concrete.</p>
+</blockquote>
+<pre><code class="language-rust  no_run  noplayground">impl&lt;T&gt; Point&lt;T&gt; {
+    fn new(x: T, y: T) -&gt; Point&lt;T&gt; {
+        Point { x, y }
+    }
+}
+
+impl&lt;T&gt; Point&lt;T&gt; {
+    fn x(&amp;self) -&gt; &amp;T {
+        &amp;self.x
+    }
+}
+
+impl&lt;A, B&gt; Point2D&lt;A, B&gt; {
+    fn new(x: A, y: B) -&gt; Self {
+        Self { x, y }
+    }
+
+    fn x(&amp;self) -&gt; &amp;A {
+        &amp;self.x
+    }
+
+    fn y(&amp;self) -&gt; &amp;B {
+        &amp;self.y
+    }
+}
+</code></pre>
+<blockquote>
+<p>Generic type paramaters in a struct definition can be different from the ones used in that struct's method signatures.</p>
+</blockquote>
+<pre><code class="language-rust  no_run  noplayground">impl&lt;X1, Y1&gt; Point2D&lt;X1, Y1&gt; {
+    fn mixup&lt;X2, Y2&gt;(self, other: Point2D&lt;X2, Y2&gt;) -&gt; Point2D&lt;X1, Y2&gt; {
+        Point2D {
+            x: self.x,
+            y: other.y,
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p>An <code>impl</code> block can only apply to a struct with a particular concrete type for the generic type paramater.</p>
+</blockquote>
+<pre><code class="language-rust  no_run  noplayground">impl Point&lt;f32&gt; {
+    fn distance(&amp;self) -&gt; f32 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+}
+</code></pre>
+<h4 id="runnable-code"><a class="header" href="#runnable-code">Runnable Code</a></h4>
+<pre><pre class="playground"><code class="language-rust  editable edition2021">#[derive(Debug)]
+struct Point&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+#[derive(Debug)]
+struct Point2D&lt;A, B&gt; {
+    x: A,
+    y: B,
+}
+
+impl&lt;T&gt; Point&lt;T&gt; {
+    fn new(x: T, y: T) -&gt; Point&lt;T&gt; {
+        Point { x, y }
+    }
+}
+
+impl&lt;T&gt; Point&lt;T&gt; {
+    fn x(&amp;self) -&gt; &amp;T {
+        &amp;self.x
+    }
+}
+
+impl&lt;A, B&gt; Point2D&lt;A, B&gt; {
+    fn new(x: A, y: B) -&gt; Self {
+        Self { x, y }
+    }
+
+    fn x(&amp;self) -&gt; &amp;A {
+        &amp;self.x
+    }
+
+    fn y(&amp;self) -&gt; &amp;B {
+        &amp;self.y
+    }
+}
+
+impl&lt;X1, Y1&gt; Point2D&lt;X1, Y1&gt; {
+    fn mixup&lt;X2, Y2&gt;(self, other: Point2D&lt;X2, Y2&gt;) -&gt; Point2D&lt;X1, Y2&gt; {
+        Point2D {
+            x: self.x,
+            y: other.y,
+        }
+    }
+}
+
+impl Point&lt;f32&gt; {
+    fn distance(&amp;self) -&gt; f32 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
+}
+
+fn main() {
+    let p = Point::new(10.10, 20.20);
+    println!(&quot;{:?}&quot;, p);
+    println!(&quot;{:?}&quot;, p.x());
+    println!(&quot;{:?}&quot;, p.distance());
+
+    let p_2d = Point2D::new(1, 2.2);
+    println!(&quot;{:?}&quot;, p_2d);
+    println!(&quot;x = {:?}&quot;, p_2d.x());
+    println!(&quot;y = {:?}&quot;, p_2d.y());
+
+    let mixed_point = p_2d.mixup(Point2D::new(1000.0, 2000.0));
+    print!(&quot;{:?}&quot;, mixed_point);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="monomorphization"><a class="header" href="#monomorphization">Monomorphization</a></h1>
+<p>&quot;Compile-time process where polymorphic functions are replaced by many monomorphic functions for each unique instantiation.&quot;
+-- <a href="https://en.wikipedia.org/wiki/Monomorphization?oldformat=true">Wikipedia</a></p>
+<p>&quot;The code that results from monomorphization is doing <em>static dispatch</em>, which is when the compiler knows what method you're calling at compile time.&quot; -- <a href="https://rust-book.cs.brown.edu/ch17-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types">The Book</a></p>
+<h4 id="before-monomorphization"><a class="header" href="#before-monomorphization">Before monomorphization</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">fn id&lt;T&gt;(x: T) -&gt; T {
+    x
+}
+
+fn main() {
+    let int_id = id(10);
+    let f32_id = id(1.1_f32);
+    let string_id = id(&quot;hello&quot;);
+    println!(&quot;{}&quot;, int_id);
+    println!(&quot;{}&quot;, f32_id);
+    println!(&quot;{}&quot;, string_id);
+}
+</code></pre></pre>
+<h4 id="after-monomorphization"><a class="header" href="#after-monomorphization">After Monomorphization</a></h4>
+<p>Rust might generate monomorphic functions with different naames.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn id_i32(x: i32) -&gt; i32 {
+    x
+}
+
+fn id_f32(x: f32) -&gt; f32 {
+    x
+}
+
+fn id_str(x: &amp;str) -&gt; &amp;str {
+    x
+}
+
+fn main() {
+    let int_id = id_i32(10);
+    let f32_id = id_f32(1.1_f32);
+    let string_id = id_str(&quot;hello&quot;);
+    println!(&quot;{}&quot;, int_id);
+    println!(&quot;{}&quot;, f32_id);
+    println!(&quot;{}&quot;, string_id);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="traits"><a class="header" href="#traits">Traits</a></h1>
+<ul>
+<li>Similiar to<code>interface</code> or <code>typeclass</code> or <code>modular-implicit</code> in other languages</li>
+<li>Trait defines shared behaviors in an abstract way.</li>
+<li>Trait enables paramateric and ad-hoc polymorphism in Rust.</li>
+<li>Trait consists of 3 kinds of associated item - functions, types, constants.</li>
+<li>All traits define an implicit type paramater <code>Self</code> that refers to &quot;the type that is implementing this trait&quot;</li>
+<li>Trait functions are not allowed to be <code>async</code> or <code>const</code>.</li>
+</ul>
+<pre><code class="language-rust norun  noplayground">trait Example {
+    const CONST_WITH_NO_DEFAULT : i32,
+    const CONST_WITH_WITH_DEFAULT : i32 = 10,
+    type item,
+    fn method_without_default(&amp;self);
+    fn method_with_default(&amp;self) { }
+}
+</code></pre>
+<blockquote>
+<p><em>orphan rule</em> dictates that external traits cannot be implemented for external types to ensure code doesn't break if two crates provide conflicting implementations.</p>
+</blockquote>
+<h4 id="a-simple-trait-implementation"><a class="header" href="#a-simple-trait-implementation">A simple trait implementation</a></h4>
+<ul>
+<li>To implement a trait, use <code>impl Trait for Type</code> block</li>
+<li>One impl block per type per trait</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">pub trait Greeting {
+    fn say_hi(&amp;self) {
+        println!(&quot;Hi&quot;);
+    }
+
+    fn greet(&amp;self);
+}
+
+struct Italian;
+struct French;
+struct English;
+
+impl Greeting for Italian {
+    fn greet(&amp;self) {
+        println!(&quot;Ciao&quot;);
+    }
+}
+
+impl Greeting for French {
+    fn greet(&amp;self) {
+        println!(&quot;Bonjour&quot;);
+    }
+}
+
+impl Greeting for English {
+    fn greet(&amp;self) {
+        println!(&quot;Hello&quot;);
+    }
+}
+
+fn main() {
+    Italian.say_hi();
+    French.say_hi();
+    English.say_hi();
+    Italian.greet();
+    French.greet();
+    English.greet();
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="impl-trait"><a class="header" href="#impl-trait">impl trait</a></h1>
+<p><code>impl Trait</code> can appear in two places:
+- argument position: anonymous type paramater
+- return position : abstract return type</p>
+<pre><code class="language-rust  norun  noplayground">trait Trait {}
+
+fn foo(arg : impl Trait) { }
+
+fn bar() -&gt; impl Trait { }
+</code></pre>
+<p><strong>Generic type paramater vs impl Trait</strong></p>
+<pre><code class="language-rust  norun  noplayground">trait Trait {}
+
+fn foo_generic&lt;T: Trait&gt;(arg : T) { }
+fn foo_impl(arg : impl Trait) { }
+</code></pre>
+<blockquote>
+<p><code>foo_generic</code> can do like <code>foo_generic::&lt;i32&gt;(1)</code> but <code>foo_impl</code> can't</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>fn bar_generic&lt;T: Trait&gt; -&gt; T { }
+fn bar_impl() -&gt; impl Trait { }
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p><code>bar_generic</code> allows the caller to determine the return type <code>T</code>, but <code>bar_impl</code> won't</p>
+</blockquote>
+<p><strong>impl Trait in return position</strong></p>
+<pre><code class="language-rust  norun  noplayground">// instead of this
+fn returns_closure() -&gt; Box&lt;dyn Fn(i32) -&gt; i32&gt; {
+  Box:new(|x| x + 1)
+}
+
+// we can do this with impl trait to avoid heap allocation and dynmic dispatch
+fn returns_closure() -&gt; impl Fn(i32) -&gt; i32 {
+  |x| x + 1
+}
+</code></pre>
+<h4 id="limitations"><a class="header" href="#limitations">Limitations</a></h4>
+<p><code>impl Trait</code> can appear in a free or inherent function </p>
+<ul>
+<li>as a paramater</li>
+<li>as a return type </li>
+</ul>
+<p>It can't appear </p>
+<ul>
+<li>inside implementation of traits</li>
+<li>let binding</li>
+<li>inside a type alias</li>
+</ul>
+<h4 id="impl-trait-1"><a class="header" href="#impl-trait-1">&amp;impl Trait</a></h4>
+<pre><pre class="playground"><code class="language-rust  editable edition2021">#![recursion_limit=&quot;1000&quot;] 
+use std::fmt::Display;
+
+enum Node&lt;T&gt; {
+    Leaf(T),
+    Children(Vec&lt;Node&lt;T&gt;&gt;),
+}
+
+impl&lt;T: Display&gt; Node&lt;T&gt; {
+    fn traverse(&amp;self, f: &amp;impl Fn(&amp;T)) {
+        match self {
+            Node::Leaf(x) =&gt; f(x),
+            Node::Children(children) =&gt; {
+                for n in children {
+                    n.traverse(f);
+                }
+            }
+        }
+    }
+}
+
+fn main() {
+    let tree = Node::Children(vec![
+        Node::Leaf(1),
+        Node::Children(vec![Node::Leaf(2), Node::Leaf(3), Node::Leaf(4)]),
+    ]);
+    tree.traverse(&amp;|x| println!(&quot;{x}&quot;))
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="trait-bound"><a class="header" href="#trait-bound">Trait Bound</a></h1>
+<p><strong><code>impl</code> syntax</strong></p>
+<pre><code class="language-rust  no_run  noplayground">fn double&lt;T&gt;(x: impl Add&lt;Output = T&gt; + Copy) -&gt; T {
+    x + x
+}
+</code></pre>
+<p><strong>Trait Bound Syntax</strong></p>
+<pre><code class="language-rust  no_run  noplayground">fn double_2&lt;T: Add&lt;Output = T&gt; + Copy&gt;(x: T) -&gt; T {
+    x + x
+}
+
+fn add&lt;T: Add&lt;Output = T&gt;&gt;(x: T, y: T) -&gt; T {
+    x + y
+}
+</code></pre>
+<p><strong>Trait Bound with <code>where</code> clause</strong>
+<strong>Trait Bound Syntax</strong></p>
+<pre><code class="language-rust  no_run  noplayground">fn double_3&lt;T&gt;(x: T) -&gt; T
+where
+    T: Add&lt;Output = T&gt; + Copy,
+{
+    x + x
+}
+
+fn add_2&lt;T&gt;(x: T, y: T) -&gt; T
+where
+    T: Add&lt;Output = T&gt;,
+{
+    x + y
+}
+
+fn foo&lt;A, B&gt;(x: A, y: B) -&gt; i32
+where
+    A: Display + Clone,
+    B: Debug + Clone,
+{
+    unimplemented!()
+}
+</code></pre>
+<p><strong>complete source code of above</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::{fmt::Debug, fmt::Display, ops::Add};
+
+fn double&lt;T&gt;(x: impl Add&lt;Output = T&gt; + Copy) -&gt; T {
+    x + x
+}
+
+fn double_2&lt;T: Add&lt;Output = T&gt; + Copy&gt;(x: T) -&gt; T {
+    x + x
+}
+
+fn add&lt;T: Add&lt;Output = T&gt;&gt;(x: T, y: T) -&gt; T {
+    x + y
+}
+
+fn double_3&lt;T&gt;(x: T) -&gt; T
+where
+    T: Add&lt;Output = T&gt; + Copy,
+{
+    x + x
+}
+
+fn add_2&lt;T&gt;(x: T, y: T) -&gt; T
+where
+    T: Add&lt;Output = T&gt;,
+{
+    x + y
+}
+
+fn foo&lt;A, B&gt;(x: A, y: B) -&gt; i32
+where
+    A: Display + Clone,
+    B: Debug + Clone,
+{
+    unimplemented!()
+}
+
+fn main() {
+    println!(&quot;{}&quot;, double(1));
+    println!(&quot;{}&quot;, double(1.1));
+    println!(&quot;{}&quot;, double_2(10));
+    println!(&quot;{}&quot;, double_3(20));
+    println!(&quot;{}&quot;, add(10, 2));
+    println!(&quot;{}&quot;, add_2(10, 2));
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="conditionally-implement-methods"><a class="header" href="#conditionally-implement-methods">Conditionally Implement Methods</a></h1>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::{fmt::Display, ops::Add};
+
+struct Pair&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+impl&lt;T&gt; Pair&lt;T&gt; {
+    fn new(x: T, y: T) -&gt; Self {
+        Self { x, y }
+    }
+}
+
+// conditionally implement methods inside this impl block
+impl&lt;T: Add&lt;Output = T&gt; + Copy + Display&gt; Pair&lt;T&gt; {
+    fn double_display(&amp;self) {
+        let dp = Pair::new(self.x + self.x, self.y + self.y);
+        println!(&quot;x = {}, y = {}&quot;, dp.x, dp.y);
+    }
+}
+
+fn main() {
+    let p = Pair::new(1.1, 2.2);
+    p.double_display();
+
+    // the following won't work, compile time error
+    // let pstr = Pair::new(&quot;hello&quot;.to_string(), &quot;world&quot;.to_string());
+    // pstr.double_display();
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="blanket-implementations"><a class="header" href="#blanket-implementations">Blanket Implementations</a></h1>
+<blockquote>
+<p>&quot;Implementations of a trait on any type that satisfies the trait bounds are called blanket implementations.&quot; -- <a href="https://rust-book.cs.brown.edu/ch10-02-traits.html">The Book</a></p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::fmt::{Display, Formatter, Result};
+
+struct Point&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+impl&lt;T&gt; Point&lt;T&gt; {
+    fn new(x: T, y: T) -&gt; Self {
+        Self { x, y }
+    }
+}
+
+impl&lt;T: Display&gt; Display for Point&lt;T&gt; {
+    fn fmt(&amp;self, f: &amp;mut Formatter) -&gt; Result {
+        write!(f, &quot;x : {}, y : {}&quot;, self.x, self.y)
+    }
+}
+
+fn main() {
+    let p = Point::new(1.1, 2.2);
+    let pstr = p.to_string();
+    println!(&quot;{pstr}&quot;);
+}
+</code></pre></pre>
+<p><code>let pstr = p.to_string();</code> works because of the following blanket implementation in Rust Standard library.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl&lt;T : Display&gt; ToString for T { ... }
+<span class="boring">}
+</span></code></pre></pre>
+<p><code>ToString</code> trait is implemented in Standard library for any type that satisfies <code>Display</code> trait.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="trait-object"><a class="header" href="#trait-object">Trait Object</a></h1>
+<ul>
+<li>A trait object is a fat pointer which is two-word values carrying the address of some value, along with some further information necessary to put the value to use.</li>
+<li>A trait object is a reference to a value that implements a certain trait.</li>
+<li>A trait object is an opaque value of another type that implements an object safe base trait, its auto traits(<code>Send</code>, <code>Sync</code>, <code>Unpin</code>, <code>UnwindSafe</code>, <code>RefUnwindSafe</code>), and any supertraits of the base trait.</li>
+<li>Trait objects are written as the keyword <code>dyn</code> followed by a set of trait bounds - the first must be auto traits, and one life time if any. Paths to trait may be parenthesized. </li>
+</ul>
+<p>e.g -</p>
+<ul>
+<li><code>dyn Trait</code></li>
+<li><code>dyn Trait + Send</code></li>
+<li><code>dyn Trait + Send + Sync</code></li>
+<li><code>dyn Trait + 'static</code></li>
+<li><code>dyn Trait + Send + 'static</code></li>
+<li><code>dyn Trait +</code></li>
+<li><code>dyn 'static + Trait.</code></li>
+<li><code>dyn (Trait)</code></li>
+</ul>
+<p>Due to the opaqueness of which concrete type the value is of, trait objects are dynamically sized types. Like all DSTs, trait objects are used behind some type of pointer; for example <code>&amp;dyn SomeTrait</code> or <code>Box&lt;dyn SomeTrait&gt;</code>. Each instance of a pointer to a trait object includes:</p>
+<ul>
+<li>A pointer to an instance of a type T that implements SomeTrait</li>
+<li>A virtual method table, often just called a vtable, which contains, for each method of SomeTrait and its supertraits that T implements, a pointer to T's implementation (i.e. a function pointer).</li>
+</ul>
+<blockquote>
+<p>Object safe traits can be the base trait of a trait object <a href="https://doc.rust-lang.org/nightly/reference/items/traits.html#object-safety">Object Safety, Object safe trait</a></p>
+</blockquote>
+<blockquote>
+<p>Ref: <a href="https://doc.rust-lang.org/nightly/reference/types/trait-object.html">Rust Docs</a></p>
+</blockquote>
+<p><strong>Returning a single trait using <code>impl</code></strong></p>
+<pre><code class="language-rust  no_run  noplayground">pub trait Runnable {
+    fn run(&amp;self);
+}
+
+struct Dog;
+struct Cat;
+
+impl Runnable for Dog {
+    fn run(&amp;self) {
+        println!(&quot;The dog is running.&quot;)
+    }
+}
+
+impl Runnable for Cat {
+    fn run(&amp;self) {
+        println!(&quot;The cat is running.&quot;)
+    }
+}
+
+fn get_running_dog() -&gt; impl Runnable {
+    Dog {}
+}
+</code></pre>
+<p>⛔ <strong>Rust won't allow this</strong></p>
+<pre><code class="language-rust  no_run  noplayground">fn get_runner(kind: i32) -&gt; impl Runnable {
+    if kind == 1 {
+        Dog {}
+    } else {
+        Cat {}
+    }
+}
+</code></pre>
+<p><strong>Trait Object to rescue</strong></p>
+<pre><code class="language-rust  no_run  noplayground">fn get_runner_dyn(kind: i32) -&gt; &amp;'static dyn Runnable {
+    if kind == 1 {
+        &amp;Dog {}
+    } else {
+        &amp;Cat {}
+    }
+}
+
+fn get_runner_box(kind: i32) -&gt; Box&lt;dyn Runnable&gt; {
+    if kind == 1 {
+        Box::new(Dog {})
+    } else {
+        Box::new(Cat {})
+    }
+}
+
+fn invoke_runner_dyn(runner: &amp;dyn Runnable) {
+    runner.run();
+}
+
+fn invoke_runner_box(runner: Box&lt;dyn Runnable&gt;) {
+    runner.run();
+}
+</code></pre>
+<p><strong>full source code</strong></p>
+<pre><pre class="playground"><code class="language-rust edition2021">pub trait Runnable {
+    fn run(&amp;self);
+}
+
+struct Dog;
+struct Cat;
+
+impl Runnable for Dog {
+    fn run(&amp;self) {
+        println!(&quot;The dog is running.&quot;)
+    }
+}
+
+impl Runnable for Cat {
+    fn run(&amp;self) {
+        println!(&quot;The cat is running.&quot;)
+    }
+}
+
+fn get_running_dog() -&gt; impl Runnable {
+    Dog {}
+}
+
+// but we can't do this in Rust
+/*
+fn get_runner(kind: i32) -&gt; impl Runnable {
+    if kind == 1 {
+        Dog {}
+    } else {
+        Cat {}
+    }
+}
+*/
+
+fn get_runner_dyn(kind: i32) -&gt; &amp;'static dyn Runnable {
+    if kind == 1 {
+        &amp;Dog {}
+    } else {
+        &amp;Cat {}
+    }
+}
+
+fn get_runner_box(kind: i32) -&gt; Box&lt;dyn Runnable&gt; {
+    if kind == 1 {
+        Box::new(Dog {})
+    } else {
+        Box::new(Cat {})
+    }
+}
+
+fn invoke_runner_dyn(runner: &amp;dyn Runnable) {
+    runner.run();
+}
+
+fn invoke_runner_box(runner: Box&lt;dyn Runnable&gt;) {
+    runner.run();
+}
+
+fn main() {
+    get_running_dog().run();
+    get_runner_dyn(2).run();
+    get_runner_box(1).run();
+
+    invoke_runner_dyn(&amp;Dog {});
+    invoke_runner_box(Box::new(Dog {}));
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="trait-object-layout"><a class="header" href="#trait-object-layout">Trait Object Layout</a></h1>
+<pre><code class="language-rust  norun  noplayground">let mut buf : Vec&lt;u8&gt; = vec![];
+let writer : &amp;mut Write = &amp;mut buf;
+</code></pre>
+<p><img src="traits/../assets/trait-object-layout.jpg" alt="image" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="trait-object-lifetime"><a class="header" href="#trait-object-lifetime">Trait Object Lifetime</a></h1>
+<ul>
+<li>If a trait object contain references, the lifetimes need to be expressed as part of it. e.g <code>Trait + 'a</code></li>
+<li>Compiler infers lifetime most of the time based on <a href="https://doc.rust-lang.org/nightly/reference/lifetime-elision.html#default-trait-object-lifetimes">defaults</a></li>
+</ul>
+<pre><code class="language-rust  norun  noplayground">trait Foo { }
+
+// these are the same because Box&lt;T&gt; has no lifetime bound on T
+type T1 = Box&lt;dyn Foo&gt;;
+type T2 = Box&lt;dyn Foo + 'static&gt;';
+</code></pre>
+<blockquote>
+<p>more details <a href="https://doc.rust-lang.org/nightly/reference/lifetime-elision.html#default-trait-object-lifetimes">here</a></p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="associated-type"><a class="header" href="#associated-type">Associated Type</a></h1>
+<p><code>std::ops::Add</code> trait has the folowing implementation. <code>&lt;Rhs = Self&gt;</code> is called <strong>default type paramaters</strong>. <code>Output</code> is called <strong>placeholder or associated type</strong>.</p>
+<pre><code class="language-rust  norun  noplayground">pub trait Add&lt;Rhs = Self&gt; {
+    type Output;
+
+    fn add(self, rhs: Rhs) -&gt; Self::Output;
+}
+</code></pre>
+<h5 id="usage-sample-of-add-traits-placeholder-type"><a class="header" href="#usage-sample-of-add-traits-placeholder-type">Usage sample of <code>Add</code> trait's placeholder type</a></h5>
+<pre><code class="language-rust  norun  noplayground">fn add&lt;T&gt;(x: T, y: T) -&gt; T
+where
+    T: Add&lt;Output = T&gt;,
+{
+    x + y
+}
+</code></pre>
+<h4 id="sample-implementation-of-add-trait"><a class="header" href="#sample-implementation-of-add-trait">sample implementation of <code>Add</code> trait</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::ops::Add;
+
+#[derive(Debug, Copy, Clone)]
+struct Dollar(f32);
+
+#[derive(Debug, Copy, Clone)]
+struct Cent(f32);
+
+impl Add for Dollar {
+    type Output = Self;
+
+    fn add(self, other: Self) -&gt; Self::Output {
+        Self(self.0 + other.0)
+    }
+}
+
+impl Add&lt;Cent&gt; for Dollar {
+    type Output = Dollar;
+
+    fn add(self, other: Cent) -&gt; Self::Output {
+        Self(self.0 + (other.0 / 100.))
+    }
+}
+
+fn add&lt;T&gt;(x: T, y: T) -&gt; T
+where
+    T: Add&lt;Output = T&gt;,
+{
+    x + y
+}
+
+fn main() {
+    let d1 = Dollar(1.);
+    let d2 = Dollar(2.);
+    println!(&quot;{:?}&quot;, d1 + d2);
+    println!(&quot;{:?}&quot;, d1 + Cent(120.0));
+
+    println!(&quot;{:?}&quot;, add(d1, d2));
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="generic-associated-type"><a class="header" href="#generic-associated-type">Generic Associated Type</a></h1>
+<h4 id="refs"><a class="header" href="#refs">Refs</a></h4>
+<ul>
+<li><a href="https://blog.rust-lang.org/2021/08/03/GATs-stabilization-push.html">The push for GATs stabilization</a></li>
+<li><a href="https://blog.rust-lang.org/2022/10/28/gats-stabilization.html">Generic associated types to be stable in Rust 1.65</a></li>
+<li><a href="https://rust-lang.github.io/rfcs/1598-generic_associated_types.html">RFC</a></li>
+</ul>
+<pre><code class="language-rust  norun  noplayground">use std::{sync::Arc, ops::Deref, rc::Rc};
+
+trait PointerFamily {
+    type Pointer&lt;T&gt;: Deref&lt;Target = T&gt;;
+    fn new&lt;T&gt;(value: T) -&gt; Self::Pointer&lt;T&gt;;
+}
+
+struct ArcFamily;
+
+impl PointerFamily for ArcFamily {
+    type Pointer&lt;T&gt; = Arc&lt;T&gt;;
+    fn new&lt;T&gt;(value: T) -&gt; Self::Pointer&lt;T&gt; {
+        Arc::new(value)
+    }
+}
+
+struct RcFamily;
+
+impl PointerFamily for RcFamily {
+    type Pointer&lt;T&gt; = Rc&lt;T&gt;;
+    fn new&lt;T&gt;(value: T) -&gt; Self::Pointer&lt;T&gt; {
+        Rc::new(value)
+    }
+}
+
+fn main() {
+    let arc = ArcFamily::new(&quot;hello&quot;);
+    println!(&quot;{}&quot;, arc.len());
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fully-qualified-syntax"><a class="header" href="#fully-qualified-syntax">Fully Qualified Syntax</a></h1>
+<p>Fully qualified syntax need to be used to call a struct's functions if the struct implements several traits having same function names.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">trait Duck {
+    fn walk(&amp;self) {
+        println!(&quot;walking like a duck.&quot;)
+    }
+}
+
+trait Chicken {
+    fn walk(&amp;self) {
+        println!(&quot;walking like a chicken.&quot;)
+    }
+}
+
+struct Person {
+    name: String,
+}
+
+impl Person {
+    fn walk(&amp;self) {
+        println!(&quot;walking like a human.&quot;)
+    }
+}
+
+impl Duck for Person {}
+impl Chicken for Person {}
+
+fn main() {
+    let p = Person {
+        name: String::from(&quot;Ryan&quot;),
+    };
+
+    println!(&quot;My name is {}. And I am &quot;, p.name);
+    p.walk();
+
+    Duck::walk(&amp;p);
+    Chicken::walk(&amp;p);
+
+    &lt;Person as Duck&gt;::walk(&amp;p);
+    &lt;Person as Chicken&gt;::walk(&amp;p);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="supertraits"><a class="header" href="#supertraits">Supertraits</a></h1>
+<p>A trait can have one or more supertraits.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">trait Walkable {
+    fn walk(&amp;self, steps: i32);
+}
+
+trait Talkable {
+    fn talk(&amp;self, times: i32);
+}
+
+trait Human: Walkable + Talkable {
+    fn laugh(&amp;self, times: i32);
+}
+
+struct Person;
+
+impl Walkable for Person {
+    fn walk(&amp;self, steps: i32) {
+        println!(&quot;I walk {steps} stpes.&quot;);
+    }
+}
+
+impl Talkable for Person {
+    fn talk(&amp;self, times: i32) {
+        println!(&quot;I talk {times} times.&quot;);
+    }
+}
+
+impl Human for Person {
+    fn laugh(&amp;self, times: i32) {
+        println!(&quot;I laugh {times} times.&quot;);
+    }
+}
+
+fn act_like_a_human(bloke : &amp;dyn Human) {
+    bloke.walk(10);
+    bloke.laugh(10);
+    bloke.talk(10);
+}
+
+fn main() {
+    act_like_a_human(&amp;Person{});
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="everyday-traits"><a class="header" href="#everyday-traits">Everyday Traits</a></h1>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/ops/trait.Deref.html">Deref</a></li>
+<li><a href="https://doc.rust-lang.org/std/ops/trait.DerefMut.html">DerefMut</a></li>
+<li><a href="https://dev-doc.rust-lang.org/beta/std/ops/trait.Drop.html">Drop</a> &amp; <a href="https://doc.rust-lang.org/std/mem/fn.drop.html">std::mem::drop</a>
+<ul>
+<li><a href="https://doc.rust-lang.org/reference/destructors.html">Destructors</a></li>
+</ul>
+</li>
+<li><a href="https://doc.rust-lang.org/std/convert/trait.From.html">From</a></li>
+<li><a href="https://doc.rust-lang.org/std/convert/trait.TryFrom.html">TryFrom</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="deref--derefmut"><a class="header" href="#deref--derefmut">Deref &amp; DerefMut</a></h1>
+<p>Used for immutable dereferencing operations, like *v.</p>
+<p>In addition to being used for explicit dereferencing operations with the (unary) * operator in immutable contexts, Deref is also used implicitly by the compiler in many circumstances.</p>
+<blockquote>
+<p>Deref should only be implemented for smart pointers to avoid confusion.</p>
+</blockquote>
+<p>Rust does <strong>deref coercion</strong> when it finds types and trait implementations in three cases:</p>
+<ul>
+<li>From <code>&amp;T</code> to <code>&amp;U</code> when T: Deref&lt;Target=U&gt;</li>
+<li>From <code>&amp;mut</code> T to <code>&amp;mut</code> U when T: DerefMut&lt;Target=U&gt;</li>
+<li>From <code>&amp;mut</code> T to <code>&amp;U</code> when T: Deref&lt;Target=U&gt;</li>
+</ul>
+<blockquote>
+<p><code>&amp;String</code> can be coerced to <code>&amp;str</code>, <code>&amp;Vec&lt;T&gt;</code> can be coerced to <code>&amp;[T]</code>. Many method calls on <code>String</code> and <code>Vec&lt;T&gt;</code> are actually calls to methods on <code>str</code> and <code>[T]</code> respectively, via <em>deref coercions</em>.</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait Deref {
+    type Target: ?Sized;
+
+    fn deref(&amp;self) -&gt; &amp;Self::Target;
+}
+
+pub trait DerefMut: Deref {
+    fn deref_mut(&amp;mut self) -&gt; &amp;mut Self::Target;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="deref-implementation"><a class="header" href="#deref-implementation">Deref implementation</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">#[derive(Debug)]
+struct SmartBox&lt;T&gt; {
+   value : T 
+}
+
+impl&lt;T&gt; SmartBox&lt;T&gt; {
+    fn new(v : T) -&gt; Self {
+            Self{ value : v}
+    }
+}
+
+use std::ops::Deref;
+use std::ops::DerefMut;
+impl&lt;T&gt; Deref for SmartBox&lt;T&gt; {
+    type Target = T;
+    fn deref(&amp;self) -&gt; &amp;Self::Target {
+        &amp;self.value
+    }
+}
+
+impl&lt;T&gt; DerefMut for SmartBox&lt;T&gt; {
+    fn deref_mut(&amp;mut self) -&gt; &amp;mut Self::Target {
+        &amp;mut self.value
+    }
+}
+
+fn say_hello(name : &amp;str) {
+    println!(&quot;Hello, {name}&quot;);
+}
+
+fn main() {
+   let mut sb = SmartBox::new(10);
+   println!(&quot;{}&quot;, *sb);
+   *sb = 20;
+   println!(&quot;{}&quot;, *sb);
+
+   let mut name = SmartBox::new(&quot;Ryan&quot;);
+   *name = &quot;Ryan Zan&quot;;
+   println!(&quot;{}&quot;, *name);
+   
+   let mut name = SmartBox::new(String::from(&quot;Ryan Zan&quot;));
+   (*name).push_str(&quot; Thumyat&quot;);
+   println!(&quot;{}&quot;, *name);
+
+   say_hello(&amp;name);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="drop"><a class="header" href="#drop">Drop</a></h1>
+<p>By implementing 'Drop' trait, we can request Rust to run a piece of code when a value goes out of scope.</p>
+<ul>
+<li>'Drop::drop' cannot be explicitly called</li>
+<li>To call destructor of a value explicitly, use 'std::mem::drop'</li>
+<li>'Copy' and 'Drop' are exclusive. They cannot be implemented on the same type.</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span><span class="boring">Drop trai
+</span>pub trait Drop {
+    fn drop(&amp;mut self);
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="examples"><a class="header" href="#examples">Examples</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">struct TheDrop;
+
+impl Drop for TheDrop {
+    fn drop(&amp;mut self) {
+        println!(&quot;Dropping TheDrop&quot;);
+    }
+}
+
+struct TwoDrops {
+    one : TheDrop,
+    two : TheDrop,
+}
+
+impl Drop for TwoDrops {
+    fn drop(&amp;mut self) {
+        println!(&quot;Dropping TwoDrops&quot;);
+    }
+}
+
+fn main() {
+   let _ = TwoDrops { one : TheDrop{}, two : TheDrop{} };
+
+   let droppable = TheDrop{};
+   std::mem::drop(droppable);
+
+   use std::rc::Rc;
+   let d1 = Rc::new(TheDrop{}); // doesn't print anything here
+   let d2 = Rc::clone(&amp;d1); 
+
+    std::mem::drop(d1);
+    std::mem::drop(d2);
+
+   println!(&quot;Running...&quot;);
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="from"><a class="header" href="#from">From</a></h1>
+<ul>
+<li>Used for value-to-value conversion</li>
+<li>Implementing <code>From</code> automatically provides on with the implementation of <a href="https://doc.rust-lang.org/std/convert/trait.Into.html"><code>Into</code></a> via blanket implementation</li>
+<li>Conversion must not fail.</li>
+<li>Handy in error handling to encapsulate multiple error types into a single error type</li>
+</ul>
+<h4 id="stdconvertfrom"><a class="header" href="#stdconvertfrom"><code>std::convert::From</code></a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait From&lt;T&gt;: Sized {
+    fn from(value: T) -&gt; Self;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><code>String</code> implements <code>From&lt;&amp;str&gt;</code></p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let s = String::from(&quot;Rust&quot;);
+println!(&quot;{s}&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<p><code>i32</code> implements <code>From&lt;bool&gt;</code></p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x = i32::from(true);
+println!(&quot;{x}&quot;);
+println!(&quot;{}&quot;, &lt;bool as Into&lt;i32&gt;&gt;::into(false));
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="dollar-to-mmk-conversion-example"><a class="header" href="#dollar-to-mmk-conversion-example">Dollar to MMK conversion example</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">#[derive(Debug)]
+struct MMK(f32);
+
+#[derive(Debug)]
+struct Dollar(f32);
+
+impl From&lt;Dollar&gt; for MMK {
+    fn from(value : Dollar) -&gt; Self {
+       MMK(value.0 * 5000.0)
+    }
+}
+
+impl From&lt;MMK&gt; for Dollar {
+    fn from(value : MMK) -&gt; Self {
+        Dollar(value.0 / 5000.0)
+    }
+}
+
+fn main() {
+    let mmk = MMK(5000_f32);
+    let dollar = Dollar::from(mmk); 
+    println!(&quot;{dollar:?}&quot;);
+
+    let mmk = MMK(1000.); 
+    let dollar : Dollar = mmk.into();
+    println!(&quot;{dollar:?}&quot;);
+
+    let mmk = MMK::from(Dollar(8400.));
+    println!(&quot;{mmk:?}&quot;);
+    let mmk : MMK = Dollar(1000.).into(); 
+    println!(&quot;{mmk:?}&quot;);
+}
+</code></pre></pre>
+<h4 id="usage-in-error-handling"><a class="header" href="#usage-in-error-handling">Usage in Error Handling</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use std::fs;
+use std::io;
+use std::num;
+
+enum CliError {
+    IoError(io::Error),
+    ParseError(num::ParseIntError),
+}
+
+impl From&lt;io::Error&gt; for CliError {
+    fn from(error: io::Error) -&gt; Self {
+        CliError::IoError(error)
+    }
+}
+
+impl From&lt;num::ParseIntError&gt; for CliError {
+    fn from(error: num::ParseIntError) -&gt; Self {
+        CliError::ParseError(error)
+    }
+}
+
+fn open_and_parse_file(file_name: &amp;str) -&gt; Result&lt;i32, CliError&gt; {
+    let mut contents = fs::read_to_string(&amp;file_name)?;
+    let num: i32 = contents.trim().parse()?;
+    Ok(num)
+}
+<span class="boring">}
+</span></code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="closure"><a class="header" href="#closure">Closure</a></h1>
+<ul>
+<li>Unlike functions, Rust supports type inference for closure - type annotation is optional.</li>
+<li>Closures can capture values from their environment in three ways:
+<ul>
+<li>borrowing immutably</li>
+<li>borrowing mutably</li>
+<li>taking ownership</li>
+</ul>
+</li>
+<li>Depending on what the body of the function does with the captured values, closure will decide which one of above three to be used.</li>
+</ul>
+<h3 id="borrowing-immutably"><a class="header" href="#borrowing-immutably">Borrowing immutably</a></h3>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    // Rust allows multiple immutable references
+    let list = vec![1, 2, 3];
+    // list is immutably borrowed here
+    let immutable_borrow = || println!(&quot;borrowed list: {:?}&quot;, list);
+    println!(&quot;before immutable borrow: {:?}&quot;, list);
+    immutable_borrow();
+    println!(&quot;before immutable borrow: {:?}&quot;, list);
+    immutable_borrow();
+    println!(&quot;before immutable borrow: {:?}&quot;, list);
+    immutable_borrow();
+    println!(&quot;after all borrow, list is {:?}&quot;, list);
+}
+</code></pre></pre>
+<h3 id="borrowing-mutably"><a class="header" href="#borrowing-mutably">Borrowing mutably</a></h3>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    let mut list = vec![1, 2, 3];
+    let mut mutable_borrow = || list.push(4);
+    mutable_borrow();
+    mutable_borrow();
+    println!(&quot;after mutable borrow, list is {:?}&quot;, list);
+}
+</code></pre></pre>
+<h3 id="closure-ownership"><a class="header" href="#closure-ownership">Closure ownership</a></h3>
+<p>Use <code>move</code> keyword to force closure to take ownership of its environment values</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::thread;
+
+fn main() {
+    let mut list = vec![1, 2, 3];
+    println!(&quot;before mutable borrow: {:?}&quot;, list);
+   
+    thread::spawn(move || println!(&quot;From thread: {:?}&quot;, list))
+    .join()
+    .unwrap();
+}
+</code></pre></pre>
+<p>For <code>copy</code> type, closure will copy it.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    let a = 10;
+    let move_closure = move |x : i32| a + x;
+    println!(&quot;{}&quot;, move_closure(2));
+    println!(&quot;a is still here {a}&quot;);
+}
+</code></pre></pre>
+<p>Sometimes, a closure must take ownership of an environment variable to be valid and it happens automatically without <code>move</code>.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">// magic_string is immutably borrowed here
+fn main() {
+    let magic_string = String::from(&quot;abracadaba&quot;);
+    let closure = || println!(&quot;{:?}&quot;, magic_string);
+    closure();
+    println!(&quot;{:?}&quot;, magic_string);
+}
+</code></pre></pre>
+<pre><pre class="playground"><code class="language-rust edition2021">// magic_string is moved here and 
+// closure takes ownership without needing to use 'move' keyword
+fn main() {
+    let magic_string = String::from(&quot;abracadaba&quot;);
+    let _closure = || magic_string;
+    println!(&quot;{:?}&quot;, magic_string); // throw error here
+}
+</code></pre></pre>
+<blockquote>
+<p>A closure that take ownership of environment variable(s) can be called only <strong>once</strong>.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fn-fnonce-fnmut"><a class="header" href="#fn-fnonce-fnmut">Fn, FnOnce, FnMut</a></h1>
+<p>Closures are backed by <a href="https://doc.rust-lang.org/std/ops/trait.Fn.html"><code>Fn</code></a>, <a href="https://doc.rust-lang.org/std/ops/trait.FnOnce.html"><code>FnOnce</code></a> and <a href="https://doc.rust-lang.org/std/ops/trait.FnMut.html"><code>FnMut</code></a> traits.</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait Fn&lt;Args&gt;: FnMut&lt;Args&gt; {
+    extern &quot;rust-call&quot;
+    fn call(&amp;self, args: Args) -&gt; Self::Output;
+}
+
+pub trait FnMut&lt;Args&gt;: FnOnce&lt;Args&gt; {
+    extern &quot;rust-call&quot; 
+    fn call_mut(&amp;mut self, args: Args) -&gt; Self::Output;
+}
+
+pub trait FnOnce&lt;Args&gt; {
+    type Output;
+
+    extern &quot;rust-call&quot; 
+    fn call_once(self, args: Args) -&gt; Self::Output;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="fn-trait"><a class="header" href="#fn-trait"><code>Fn</code> Trait</a></h4>
+<ul>
+<li>can be called multiple times</li>
+<li>don't move captured values out of its body</li>
+<li>don't mutate captured values</li>
+<li>even might not capture any environment variables</li>
+<li><code>FnMut</code> and <code>FnOnce</code> are supertraits of <code>Fn</code> and  it can be used as a paramater where a <code>FnMut</code> or <code>FnOnce</code> is expected</li>
+<li>is implemented automatically for closures which take immutable references to environment variables or don't capture anything at all</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">fn apply&lt;F&gt;(x : i32, invoker : F ) -&gt; i32
+where F : Fn(i32) -&gt; i32 {
+  invoker(x)        
+}
+
+fn main() {
+  let double = |x : i32| x * 2; 
+  println!(&quot;{:?}&quot;, apply(10, double));
+}
+</code></pre></pre>
+<h4 id="fnonce-trait"><a class="header" href="#fnonce-trait"><code>FnOnce</code> Trait</a></h4>
+<ul>
+<li>cannot be called multiple times</li>
+<li>is implemented automatically by closures that might consume the captured virables
+or moves the captured variables out of its body</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">fn apply&lt;F&gt;(invoker : F ) 
+where F : FnOnce() -&gt; String {
+  println!(&quot;{:?}&quot;, invoker());
+}
+
+fn main() {
+  let magic_string = String::from(&quot;a kind of magic&quot;);
+  let closure = move || magic_string ;
+  apply(closure); 
+ 
+  // closure cannot be called again
+  // apply(closure); 
+}
+</code></pre></pre>
+<h4 id="fnmut-trait"><a class="header" href="#fnmut-trait"><code>FnMut</code> Trait</a></h4>
+<ul>
+<li>can be called multiple times</li>
+<li>don't move the captured variables out of closure body, but mutate them</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">fn apply&lt;F&gt;(mut invoker : F ) 
+where F : FnMut(&amp;str) -&gt; () {
+  invoker(&quot;abra&quot;);
+}
+
+fn main() {
+  let mut magic_string = String::from(&quot;a kind of magic&quot;);
+  let closure = |x: &amp;str| { magic_string.push_str(x); println!(&quot;{:?}&quot;, magic_string); } ;
+  apply(closure); 
+}
+</code></pre></pre>
+<h4 id="returning-closure"><a class="header" href="#returning-closure">Returning Closure</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">fn closure_factory(x: i32) -&gt; Box&lt;dyn Fn(i32) -&gt; i32&gt; {
+  Box::new(move |y : i32| x + y)
+} 
+
+fn main() {
+  let c = closure_factory(10);
+  println!(&quot;{:?}&quot;, c(20));
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="iterator"><a class="header" href="#iterator"><a href="https://doc.rust-lang.org/stable/std/iter/">Iterator</a></a></h1>
+<ul>
+<li>A type that implements <a href="https://doc.rust-lang.org/std/iter/trait.IntoIterator.html"><code>into-iterator</code></a> is <strong>iterable</strong> and can be used with <code>for</code> loop syntax.</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub trait IntoIterator {
+    type Item;
+    type IntoIter: Iterator
+    where
+        &lt;Self::IntoIter as Iterator&gt;::Item == Self::Item;
+
+    fn into_iter(self) -&gt; Self::IntoIter;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<ul>
+<li>A type that implements <a href="https://doc.rust-lang.org/std/iter/trait.Iterator.html"><code>iterator</code></a> is <strong>iterator</strong></li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>trait Iterator {
+    type Item;
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt;;
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p><strong>iterator</strong> can be reterieved from <strong>iterable types</strong> using the following 3 methods:</p>
+<ul>
+<li><code>iter()</code> - iterates over <code>&amp;T</code></li>
+<li><code>iter_mut()</code> - iterates over <code>&amp;mut T</code></li>
+<li><code>into_iter()</code> - iterates over <code>T</code></li>
+</ul>
+<p><code>iter()</code> and <code>iter_mut()</code> are not the methods of any trait.</p>
+<h4 id="looping-with-into_iter"><a class="header" href="#looping-with-into_iter">Looping with <code>into_iter</code></a></h4>
+<pre><code class="language-rust  norun  noplayground">    let v1 = vec![1, 2, 3, 4, 5];
+    for v in v1 {
+        println!(&quot;{v}&quot;);
+    }
+
+    // the following line will give error cause v1 is moved into the loop.
+    // loop takes ownership of v1
+    // println!(&quot;{:?}&quot;, v1);
+
+    // same as above
+    let v1 = vec![1, 2, 3, 4, 5];
+    let mut iter = v1.into_iter();
+    while let Some(i) = iter.next() {
+        println!(&quot;{i}&quot;);
+    }
+</code></pre>
+<h4 id="looping-with-iter"><a class="header" href="#looping-with-iter">Looping with <code>iter</code></a></h4>
+<pre><code class="language-rust  norun  noplayground">    let v1 = vec![1, 2, 3, 4, 5];
+    for v in &amp;v1 {
+        println!(&quot;{v}&quot;);
+    }
+    // v1 is still valid here cause the loop iterates over &amp;v1
+    println!(&quot;{v1:?}&quot;);
+    
+    // same as above, but using iter method
+    let v1 = vec![1, 2, 3, 4, 5];
+    for v in v1.iter() {
+        println!(&quot;{v}&quot;);
+    }
+    // v1 is still valid here cause the loop iterates over &amp;v1
+    println!(&quot;{v1:?}&quot;);
+</code></pre>
+<h4 id="looping-with-iter_mut"><a class="header" href="#looping-with-iter_mut">Looping with <code>iter_mut</code></a></h4>
+<pre><code class="language-rust  norun  noplayground">    let mut v1 = vec![1, 2, 3, 4, 5];
+    for v in &amp;mut v1 {
+        *v = *v + *v
+    }
+    println!(&quot;{v1:?}&quot;); // =&gt;  [2, 4, 5, 8, 10]
+    
+    // same as above but using inter_mut method
+    let mut v1 = vec![1, 2, 3, 4, 5];
+    for v in v1.iter_mut() {
+        *v = *v + *v
+    }
+    println!(&quot;{v1:?}&quot;); // =&gt;  [2, 4, 5, 8, 10]
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="implemting-iterator"><a class="header" href="#implemting-iterator">Implemting Iterator</a></h1>
+<p>If a type is implemented <code>iterator</code>, <code>into_iterator</code> is implemented automatically for it because of the following <a href="https://doc.rust-lang.org/src/core/iter/traits/collect.rs.html#266">blanket implementation</a>:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>impl&lt;I: ~const Iterator&gt; const IntoIterator for I {
+    type Item = I::Item;
+    type IntoIter = I;
+
+    #[inline]
+    fn into_iter(self) -&gt; I {
+        self
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="sample-iterator-implementation"><a class="header" href="#sample-iterator-implementation">Sample Iterator implementation</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::option::IterMut;
+
+#[derive(Debug)]
+struct Counter {
+    count : i32
+}
+
+impl Counter {
+    fn new () -&gt; Self {
+        Self { count : 0}
+    }
+}
+
+impl Iterator for Counter {
+    type Item = i32;
+
+    fn next(&amp;mut self) -&gt; Option&lt;Self::Item&gt; {
+        self.count += 1;
+        if self.count == 17 {
+            None
+        } else {
+            Some(self.count)
+        }
+    }
+}
+
+fn main() {
+    let counter = Counter::new();
+
+    for i in counter {
+        println!(&quot;{i}&quot;);
+    }
+
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="error-handling"><a class="header" href="#error-handling">Error Handling</a></h1>
+<ul>
+<li>
+<p>recoverable error such as file not found, use <code>Result&lt;T, E&gt;</code></p>
+</li>
+<li>
+<p>unrecoverable error such as accessing a location beyond the end of array, use <code>panic!</code></p>
+</li>
+<li>
+<p>you can switch from unwinding to aborting upon a panic by adding panic = 'abort' to the appropriate [profile] sections in your Cargo.toml file</p>
+<pre><code>[profile.release]
+panic = 'abort'
+</code></pre>
+</li>
+</ul>
+<h4 id="result-type"><a class="header" href="#result-type"><a href="https://doc.rust-lang.org/std/result/enum.Result.html">Result type</a></a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>enum Result&lt;T, E&gt; {
+    Ok(T),
+    Err(E),
+}
+<span class="boring">}
+</span></code></pre></pre>
+<blockquote>
+<p>Instead of <code>unwrap</code>, <code>expect</code> should be used to give more context about the operation<br/></p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let file = std::fs::File::open(&quot;hello.txt&quot;)
+           .expect(&quot;hello.txt should be included in the project&quot;)
+<span class="boring">}
+</span></code></pre></pre>
+</blockquote>
+<blockquote>
+<p>? operator can be used with <code>Result</code> or <code>Option</code> type, but can't mix can match between them</p>
+</blockquote>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>// e? expression, where e is of type Result&lt;T, E&gt;,  equals to
+match e {
+  Ok(x) =&gt; x,
+  Err(err) =&gt; { return Err(err); }
+}
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="sample-code"><a class="header" href="#sample-code">Sample Code</a></h4>
+<pre><pre class="playground"><code class="language-rust  noedit edition2021">use std::fs::File;
+use std::io::Read;
+use std::io;
+use std::io::ErrorKind;
+
+//  using panic!
+fn read_file(path: &amp;str) -&gt; io::Result&lt;()&gt; {
+    let mut file = match File::open(path) {
+        Ok(file) =&gt; file,
+        Err(error) =&gt; panic!(&quot;Error: {:?}&quot;, error),
+    };
+    let mut buf = String::new();
+    file.read_to_string(&amp;mut buf)?;
+    println!(&quot;{:?}&quot;, buf);
+    Ok(())
+}
+
+// using panic!
+fn read_or_create_file(path: &amp;str) -&gt; io::Result&lt;()&gt; {
+    let mut file = File::open(path).unwrap_or_else(|error|{
+       if error.kind() == ErrorKind::NotFound {
+            File::create(path).unwrap_or_else(|error| {
+                panic!(&quot;Error creating file {:?}&quot;, error);
+            })
+        } else {
+            panic!(&quot;Error opening file&quot;);
+        }
+    });
+    let mut buf = String::new();
+    file.read_to_string(&amp;mut buf)?;
+    println!(&quot;{:?}&quot;, buf);
+    Ok(())
+}
+
+// using Result propagation operator ?
+fn read_content(path: &amp;str) -&gt; io::Result&lt;String&gt; {
+    let mut buf = String::new();
+    let mut f = File::open(path)?;
+    File::read_to_string(&amp;mut f,&amp;mut buf)?;
+    Ok(buf)
+}
+
+fn main() -&gt; io::Result&lt;()&gt; {
+    read_file(&quot;hello.txt&quot;)?;
+    read_or_create_file(&quot;abc.txt&quot;)?;
+    println!(&quot;{:?}&quot;, read_content(&quot;hello.txt&quot;)?);
+    Ok(())
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="patterns"><a class="header" href="#patterns">Patterns</a></h1>
+<p>Patterns are used to match values against structures and to, optionally, bind variables to values inside these structures. They are also used in variable declarations and parameters for functions and closures. <a href="https://doc.rust-lang.org/reference/patterns.html#path-patterns">-- Ref</a></p>
+<h4 id="refutability"><a class="header" href="#refutability">Refutability</a></h4>
+<p>A pattern is said to be refutable when it has the possibility of not being matched by the value it is being matched against. Irrefutable patterns, on the other hand, always match the value they are being matched against. Examples:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let (x, y) = (1, 2);               // &quot;(x, y)&quot; is an irrefutable pattern
+
+if let (a, 3) = (1, 2) {           // &quot;(a, 3)&quot; is refutable, and will not match
+    panic!(&quot;Shouldn't reach here&quot;);
+} else if let (a, 4) = (3, 4) {    // &quot;(a, 4)&quot; is refutable, and will match
+    println!(&quot;Matched ({}, 4)&quot;, a);
+} 
+<span class="boring">}
+</span></code></pre></pre>
+<h4 id="binding-modes"><a class="header" href="#binding-modes">Binding modes</a></h4>
+<p>To service better ergonomics, patterns operate in different binding modes in order to make it easier to bind references to values. When a reference value is matched by a non-reference pattern, it will be automatically treated as a ref or ref mut binding. Example:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let x: &amp;Option&lt;i32&gt; = &amp;Some(3);
+if let Some(y) = x {
+    // y was converted to `ref y` and its type is &amp;i32
+}
+<span class="boring">}
+</span></code></pre></pre>
+<p>If a binding pattern does not explicitly have ref, ref mut, or mut, then it uses the default binding mode to determine how the variable is bound. The default binding mode starts in &quot;move&quot; mode which uses move semantics.</p>
+<h4 id="patterns-1"><a class="header" href="#patterns-1">Patterns</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">fn main() {
+    // 1. Wildcard Pattern
+    // _ (an underscore symbol) is used for wildcard pattern, and it matches any value
+    let (a, _) = (1, 2);
+    assert_eq!(a, 1);
+
+    match a {
+        _ =&gt; println!(&quot;a can be any number&quot;),
+    }
+
+    // 2. Literal Pattern : integer literal
+    for i in -3..2 {
+        match i {
+            -3 | -2 | -1 =&gt; println!(&quot;Negative Number&quot;),
+            0 =&gt; println!(&quot;Zero&quot;),
+            _ =&gt; println!(&quot;Positive Number&quot;),
+        }
+    }
+    // Literal Pattern: char literal
+    for a in 'a'..'z' {
+        match a {
+            'a' | 'e' | 'i' | 'o' | 'u' =&gt; println!(&quot;It's vowel&quot;),
+            _ =&gt; println!(&quot;It's consonant&quot;),
+        }
+    }
+
+    // 3. Range Pattern
+    let ch = 'a';
+    match ch {
+        'a'..='z' =&gt; println!(&quot;lowercase letter&quot;),
+        'A'..='Z' =&gt; println!(&quot;uppercase letter&quot;),
+        _ =&gt; println!(&quot;other&quot;),
+    }
+
+    // 4. Identifier Pattern
+    let x = 16;
+    match x {
+        // bind x to e, print e if it is between 1 and 10 inclusively
+        e @ 1..=10 =&gt; println!(&quot;{e}&quot;),
+        // bind x to e, print e if it is greater than 10
+        e @ 11.. =&gt; println!(&quot;{e} is greater than 10.&quot;),
+        e =&gt; println!(&quot;{e}&quot;),
+    }
+
+    // this is also an identifier pattern, bind &quot;hello&quot; to s1
+    let s1 = &quot;hello&quot;;
+    println!(&quot;{s1}&quot;);
+    // same as above, bind &quot;hello&quot; to s using match
+    match &quot;hello&quot; {
+        s =&gt; println!(&quot;{s}&quot;),
+    }
+
+    // Identifier Pattern with ref or mut
+    let z = &quot;Zan&quot;.to_string();
+    match z {
+        e =&gt; println!(&quot;{e}&quot;),
+    }
+    // println!(&quot;{z}&quot;); // compile time error cause z is moved to e and no longer valid here
+
+    // with ref
+    let z = &quot;Zan&quot;.to_string();
+    match z {
+        ref e =&gt; println!(&quot;{e}&quot;),
+    }
+    assert_eq!(z, &quot;Zan&quot;);
+
+    // with ref mut
+    let mut z = &quot;Zan&quot;.to_string();
+    match z {
+        ref mut e =&gt; *e = &quot;Ryan Zan&quot;.to_string(),
+    }
+    assert_eq!(z, &quot;Ryan Zan&quot;);
+
+    // 5. Slice Pattern for fixed-sized array
+    let odds = [1, 2, 3, 4, 5];
+    match odds {
+        [1, 2, a, _, _] =&gt; {
+            println!(&quot;Starts with 1 and 2&quot;);
+            println!(&quot;The third is {a}&quot;)
+        }
+        _ =&gt; println!(&quot;Starts with something else&quot;),
+    }
+
+    // Slice Pattern for slices of dynamic size
+    let evens = vec![2, 4, 6];
+    match evens[..] {
+        [a, b] =&gt; println!(&quot;{a}, {b}&quot;),
+        [a, b, c] =&gt; println!(&quot;{a}, {b}, {c}&quot;),
+        _ =&gt; println!(&quot;Not Matched&quot;),
+    }
+
+    // 6. Tuple Pattern
+    let (i, s) = (7, &quot;monkeys&quot;);
+    assert_eq!(i, 7);
+    assert_eq!(s, &quot;monkeys&quot;);
+
+    // 7. Tuple Struct Pattern
+    struct Point(f32, f32);
+    let p = Point(1.1, 2.2);
+    match p {
+        Point(x, y) =&gt; println!(&quot;{x}, {y}&quot;),
+    }
+
+    // 8. Rest Pattern - only be used in tuple, tuple struct, and slice pattern
+    let odds = (1, 3, 5, 7, 9, 11);
+    let (fst, ..) = odds;
+    assert_eq!(fst, 1);
+    let (.., last) = odds;
+    assert_eq!(last, 11);
+
+    let evens = vec![2, 4, 6, 8];
+    fn sum(slice: &amp;[i32], acc: i32) -&gt; i32 {
+        match slice {
+            [] =&gt; acc,
+            [h, tail @ ..] =&gt; sum(&amp;tail, h + acc),
+        }
+    }
+    let r = sum(&amp;evens, 0);
+    assert_eq!(r, evens.iter().sum());
+
+    // 9. Reference Pattern
+    let one = &amp;1;
+    match one {
+        &amp;1 =&gt; println!(&quot;yes&quot;),
+        _ =&gt; println!(&quot;hmm&quot;),
+    }
+
+    let maybe: &amp;Option&lt;i32&gt; = &amp;Some(10);
+    match maybe {
+        &amp;Some(x) =&gt; println!(&quot;{x}&quot;),
+        &amp;None =&gt; println!(&quot;Nothing&quot;),
+    }
+
+    // or simply like below (check binding modes section)
+    let some_val = &amp;Some(10);
+    match some_val {
+        Some(x) =&gt; println!(&quot;{x}&quot;),
+        None =&gt; println!(&quot;None&quot;),
+    }
+
+    // 10. Grouped Pattern
+    let two = &amp;2;
+    match two {
+        &amp;(1..=5) =&gt; println!(&quot;Between 1 and 5&quot;),
+        &amp;(6..=10) =&gt; println!(&quot;Between 6 and 10&quot;),
+        _ =&gt; println!(&quot;Other&quot;),
+    }
+
+    // 11. Path Pattern with enum
+    enum Color {
+        Red,
+        Green,
+        Blue,
+    }
+    let red = Color::Red;
+    match red {
+        Color::Red =&gt; println!(&quot;red&quot;),
+        Color::Green =&gt; println!(&quot;green&quot;),
+        Color::Blue =&gt; println!(&quot;blue&quot;),
+    }
+
+    // Path Pattern with constant
+    const MAX_VALUE: i32 = 100;
+
+    let x = 75;
+    match x {
+        MAX_VALUE =&gt; println!(&quot;The value is the maximum&quot;),
+        _ =&gt; println!(&quot;The value is something else&quot;),
+    }
+
+    // 12. Struct Pattern
+    struct Location {
+        x: i32,
+        y: i32,
+    }
+    let p1 = Location { x: 1, y: 2 };
+    match p1 {
+        Location { x: 1, y: 3 } =&gt; println!(&quot;A&quot;),
+        Location { x: 2, y: 2 } =&gt; println!(&quot;B&quot;),
+        Location { .. } =&gt; println!(&quot;Unknown&quot;),
+    }
+
+    // 13. Macro Invocation Pattern
+    let _v = vec![1,2]; // this is macro invocation patter - invoke vec macro
+
+    // another simple example
+    macro_rules! foo {
+        ($x:expr) =&gt; {
+            $x
+        };
+    }
+
+    let x = 5;
+    match x {
+        foo!(5) =&gt; println!(&quot;It's 5&quot;),
+        _ =&gt; println!(&quot;The value is something else&quot;),
+    }
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fearless-concurrency"><a class="header" href="#fearless-concurrency">Fearless Concurrency</a></h1>
+<p>The following will be explored under the title of Fearless Concurrency.</p>
+<ul>
+<li>Multi threading with message-passing</li>
+<li>Multi threading with shard-state</li>
+<li>Async/Await</li>
+</ul>
+<h4 id="refs-1"><a class="header" href="#refs-1">Refs</a></h4>
+<ul>
+<li><a href="https://doc.rust-lang.org/std/thread/index.html">https://doc.rust-lang.org/std/thread/index.html</a></li>
+<li><a href="https://doc.rust-lang.org/book/ch16-01-threads.html">https://doc.rust-lang.org/book/ch16-01-threads.html</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="thread"><a class="header" href="#thread">Thread</a></h1>
+<ul>
+<li>A thread has its own thread-local stack. The default size of a spawned thread is 2 MiB (Mebibyte 2<sup>20</sup>) - subject to change.</li>
+<li>A thread can be spawned by calling <code>std::thread::spawn</code>
+<pre><pre class="playground"><code class="language-rust edition2021">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>pub fn spawn&lt;F, T&gt;(f: F) -&gt; JoinHandle&lt;T&gt;
+where
+    F: FnOnce() -&gt; T,
+    F: Send + 'static,
+    T: Send + 'static,
+<span class="boring">}
+</span></code></pre></pre>
+</li>
+</ul>
+<h4 id="spawning-a-thread"><a class="header" href="#spawning-a-thread">Spawning a thread</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::thread;
+
+fn main() {
+    let handler = thread::spawn(|| println!(&quot;{:?}&quot;, thread::current().id()));
+    // wait until the spawned thread finishes its job
+    handler.join().unwrap();
+}
+</code></pre></pre>
+<h4 id="create-a-thread-with-builder-and-configure-stack-size"><a class="header" href="#create-a-thread-with-builder-and-configure-stack-size">Create a thread with Builder and configure stack size</a></h4>
+<ul>
+<li>the stack size of the main thread is not determined by Rust</li>
+<li>can set stack size via RUST_MIN_STACK env variable but <code>Builder::stack_size</code> will override it</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::thread;
+fn main() {
+    let handler = thread::Builder::new()
+        .stack_size(1024 /* bytes */)
+        .name(&quot;worker 1&quot;.to_string())
+        .spawn(|| {
+            let current = thread::current();
+            println!(&quot;Name = {:?}, Id = {:?}&quot;, current.name().unwrap(), current.id());
+        })
+        .unwrap();
+    handler.join().unwrap();
+    println!(&quot;Main Thread ID = {:?}&quot;, thread::current().id());
+}
+</code></pre></pre>
+<h4 id="spawning-many-threads"><a class="header" href="#spawning-many-threads">Spawning many threads</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::thread;
+
+fn main() {
+    const NUM_OF_THREADS: usize = 10;
+    let mut handlers: Vec&lt;thread::JoinHandle&lt;()&gt;&gt; = Vec::with_capacity(NUM_OF_THREADS);
+    for _ in 1..=10 {
+        handlers.push(thread::spawn(|| println!(&quot;{:?}&quot;, thread::current().id())));
+    }
+    handlers.into_iter().for_each(move |h| h.join().unwrap());
+
+    println!(&quot;Main Thread ID = {:?}&quot;, thread::current().id());
+}
+</code></pre></pre>
+<h4 id="scoped-thread-ref"><a class="header" href="#scoped-thread-ref">Scoped Thread <a href="https://medium.com/@KevinBGreene/async-programming-in-rust-part-2-diving-into-scoped-threads-50aace437756">Ref</a></a></h4>
+<ul>
+<li>non-scoped threads <strong>cannot</strong> borrow non-<code>'static</code> value </li>
+<li>scoped threads <strong>can</strong> borrow non-<code>'static</code> value as the scope guarantees all threads will be joined at the end of the scope</li>
+</ul>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::thread;
+
+fn main() {
+    let  v = vec![1, 2, 3];
+
+    // the following code throws compile time error cuase
+    // the thread can't borrow v
+    // closure may outlive the current function
+    
+    let handler = thread::spawn(|| println!(&quot;{:?}&quot;, v));
+
+    // to fix the error, we need to move v into the closure like below
+    // let handler = thread::spawn(move || println!(&quot;{:?}&quot;, v));
+   
+   handler.join().unwrap();
+}
+</code></pre></pre>
+<p>With scoped thread:</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::thread;
+fn main() {
+    let s = &quot;Hello&quot;.to_owned();
+    let mut v = vec![1, 2, 3];
+    
+    thread::scope(|scope| {
+        scope.spawn(|| {
+            println!(&quot;soped thread borrows s&quot;);
+            dbg!(&amp;s);
+        });
+        
+        scope.spawn(|| {
+            println!(&quot;soped thread mutably borrows v&quot;);
+            v.push(4); 
+            v.push(5); 
+        });
+        
+        // all threads join at  the end of the scope
+    });
+
+    println!(&quot;{v:?}&quot;); // =&gt; [1, 2, 3, 4, 5]
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="channel"><a class="header" href="#channel">Channel</a></h1>
+<p><a href="https://doc.rust-lang.org/std/sync/mpsc/"><code>std::sync::mpsc</code></a> provides multi-producer, single-consumer FIFO queue communication primitives and message-based communication over channels.</p>
+<h4 id="example-code-multiple-producers-and-one-receiver"><a class="header" href="#example-code-multiple-producers-and-one-receiver">Example code (multiple producers and one receiver)</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::sync::mpsc;
+use std::thread;
+
+fn main() {
+    let (tx, rx) = mpsc::channel();
+    let tx1 = tx.clone();
+   
+    let handler1 = thread::spawn(move || {
+        for i in 1..=10 {
+            tx.send(format!(&quot;{} {}&quot;, &quot;T1: Hi&quot;, i)).unwrap();
+            thread::sleep(std::time::Duration::from_secs(1));
+        }
+        
+    });
+
+    let handler2 = thread::spawn(move || {
+        for i in 1..=10 {
+            tx1.send(format!(&quot;{} {}&quot;, &quot;T2: Hi&quot;, i)).unwrap();
+            thread::sleep(std::time::Duration::from_secs(1));
+        }
+    });
+
+    for received in rx {
+        println!(&quot;{received:?}&quot;);
+    }
+
+    handler2.join().unwrap();
+    handler1.join().unwrap();
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="shared-state-concurrency"><a class="header" href="#shared-state-concurrency">Shared-State Concurrency</a></h1>
+<h3 id="mutextt"><a class="header" href="#mutextt"><a href="https://doc.rust-lang.org/std/sync/struct.Mutex.html"><code>Mutext&lt;T&gt;</code></a></a></h3>
+<ul>
+<li>Need to lock it first before using </li>
+<li>Need to unlock after using, <code>Drop</code> trait is implemented and unlocking will happen once Mutex goes out of scope</li>
+</ul>
+<h4 id="example-1"><a class="header" href="#example-1">Example</a></h4>
+<pre><pre class="playground"><code class="language-rust edition2021">use std::thread;
+use std::sync::{Mutex, Arc};
+
+fn main() {
+   let mut handlers  = vec![];  
+    let counter = Arc::new(Mutex::new(0));
+    for _ in 1..=10 {
+        let counter = Arc::clone(&amp;counter);
+        handlers.push(thread::spawn(move || {
+            let mut c = counter.lock().unwrap();
+            println!(&quot;{:?}, Counter : {:?}&quot;, thread::current().id(), *c);
+            *c += 1; 
+        }));
+    }
+
+    for h in handlers {
+        h.join().unwrap();
+    }
+
+    println!(&quot;Counter : {}&quot;, *counter.lock().unwrap());
+}
+</code></pre></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
+<h3 id="staying-up-to-date"><a class="header" href="#staying-up-to-date">Staying Up to Date</a></h3>
+<ul>
+<li><a href="https://doc.rust-lang.org/nightly/reference/introduction.html">Nightly Doc</a></li>
+<li><a href="https://blog.rust-lang.org">Official Rust Blog</a></li>
+<li><a href="https://doc.rust-lang.org/edition-guide/">The Rust Edition Guide</a></li>
+<li><a href="https://blog.rust-lang.org/inside-rust/">Inside Rust Blog</a></li>
+<li><a href="https://www.rust-lang.org/governance/">Governance - How Rust is built by its community</a></li>
+<li><a href="https://internals.rust-lang.org/">Rust Internals Forum</a></li>
+<li><a href="https://this-week-in-rust.org/">This Week in Rust</a></li>
+</ul>
+<h3 id="support-community"><a class="header" href="#support-community">Support community</a></h3>
+<ul>
+<li><a href="https://users.rust-lang.org/">Rust Users Forum</a></li>
+<li><a href="https://www.reddit.com/r/rust/">Rust Reddit</a></li>
+<li><a href="https://discord.com/invite/rust-lang-community">Rust Discord</a></li>
+</ul>
+<h3 id="reading-resources"><a class="header" href="#reading-resources">Reading Resources</a></h3>
+<ul>
+<li><a href="https://www.rust-lang.org/learn/">Learn Rust</a></li>
+<li><a href="https://doc.rust-lang.org/nightly/reference/index.html">Rust Reference</a></li>
+<li><a href="https://doc.rust-lang.org/book/">The Book - second edition</a></li>
+<li><a href="https://doc.rust-lang.org/std/index.html">The Rust Standard Library</a></li>
+<li><a href="https://doc.rust-lang.org/nightly/nomicon/">The Rustonomicon</a></li>
+<li><a href="https://cheats.rs/">Rust Cheat Sheet</a></li>
+<li><a href="https://rustc-dev-guide.rust-lang.org/">Guide to Rustc Development</a></li>
+<li><a href="https://std-dev-guide.rust-lang.org/">Standard library developers Guide</a></li>
+<li><a href="https://rust-lang.github.io/api-guidelines/">Rust API Guidelines</a></li>
+<li><a href="https://rust-lang.github.io/unsafe-code-guidelines/">Unsafe Code Guidelines Reference</a></li>
+<li><a href="https://veykril.github.io/tlborm/">The Little Book of Rust Macros</a></li>
+<li><a href="https://nnethercote.github.io/perf-book/">Rust Performance Book</a></li>
+<li><a href="https://rust-fuzz.github.io/book/">Rust Fuxx Book</a></li>
+<li><a href="https://rust-lang-nursery.github.io/rust-cookbook/">Rust Cookbook</a></li>
+<li><a href="https://doc.rust-lang.org/rust-by-example/">Rust by Example</a></li>
+<li><a href="https://lborb.github.io/book/unofficial.html">The Little Book of Rust Books</a></li>
+<li><a href="https://rust-cli.github.io/book/index.html">Command Line Applications in Rust</a> </li>
+<li><a href="https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/README.html">The Book - first edition</a></li>
+<li><a href="https://tourofrust.com/TOC_en.html">Rust Tour</a></li>
+<li><a href="https://dhghomon.github.io/easy_rust/Chapter_0.html">Easy Rust</a></li>
+<li><a href="https://tfpk.github.io/lifetimekata">LifetimeKata</a></li>
+</ul>
+<h3 id="blogs"><a class="header" href="#blogs">Blogs</a></h3>
+<ul>
+<li><a href="https://fasterthanli.me/tags/rust">Everything about rust</a></li>
+</ul>
+<h3 id="videoaudio-resources"><a class="header" href="#videoaudio-resources">Video/Audio Resources</a></h3>
+<ul>
+<li><a href="https://www.youtube.com/c/JonGjengset">Jon Gjengset</a></li>
+<li><a href="https://github.com/jamesmunns/awesome-rust-streaming/">Awesome-rust-streaming</a></li>
+<li><a href="https://www.youtube.com/c/timClicks">timClicks</a></li>
+<li><a href="https://www.youtube.com/c/SystemswithJT">Systems with JT</a></li>
+<li><a href="https://www.youtube.com/c/RyanLevicksVideos">Ryan Levick</a></li>
+</ul>
+<h3 id="university-courses"><a class="header" href="#university-courses">University Courses</a></h3>
+<ul>
+<li><a href="https://stanford-cs242.github.io/f18/">Stanford</a></li>
+<li><a href="https://cis198-2016s.github.io/schedule/">Pennsylvania</a></li>
+</ul>
+<h3 id="open-source-contributions"><a class="header" href="#open-source-contributions">Open source contributions</a></h3>
+<ul>
+<li><a href="https://github.com/dtolnay/request-for-implementation/">Request-for-implementation</a></li>
+<li><a href="https://github.com/not-yet-awesome-rust/not-yet-awesome-rust/">Not-yet-awesome-rust</a></li>
+</ul>
+<h3 id="code-projects-to-practice-or-read"><a class="header" href="#code-projects-to-practice-or-read">Code Projects to practice or read</a></h3>
+<ul>
+<li><a href="https://github.com/tokio-rs/mini-redis/">Mini Redis</a></li>
+<li><a href="https://rust-unofficial.github.io/too-many-lists/">Too Many Linked Lists</a></li>
+<li><a href="https://os.phil-opp.com/">Writing an OS in Rust</a></li>
+<li><a href="https://github.com/kyclark/command-line-rust">Command Line Projects</a></li>
+</ul>
+<h3 id="exercisequiz"><a class="header" href="#exercisequiz">Exercise/Quiz</a></h3>
+<ul>
+<li><a href="https://dtolnay.github.io/rust-quiz">Rust Quiz</a></li>
+</ul>
+<h3 id="data-structures-and-algorithms"><a class="header" href="#data-structures-and-algorithms">Data Structures and Algorithms</a></h3>
+<ul>
+<li><a href="https://github.com/TheAlgorithms/Rust">DSA Github</a></li>
+</ul>
+<h3 id="free-books"><a class="header" href="#free-books">Free Books</a></h3>
+<ul>
+<li><a href="https://marabos.nl/atomics/">Rust Atomics and Locks</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pictures"><a class="header" href="#pictures">Pictures</a></h1>
+<h3 id="container-cheatsheet-by-raph-levien"><a class="header" href="#container-cheatsheet-by-raph-levien">Container Cheatsheet by Raph Levien</a></h3>
+<p><img src="assets/../assets/RustContainerCheatsheet.jpg" alt="image" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="editor.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mode-rust.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-dawn.js" type="text/javascript" charset="utf-8"></script>
+        <script src="theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+    </body>
+</html>
